@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+
+
+    <!--
+      This is the page head - it contains info the browser uses
+      Like the title, which appears on the browser tab but not inside the page
+      Further down you'll see the content that displays in the page
+    -->
+    <title>ROBLOX Twisted Thermos Calculator</title>
+
+    <!-- The website stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- The website JavaScript file -->
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+    
+    
+    
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <div id="topbar" style="position:fixed; left: 0px; width: 100%; top: 0px; border-radius: 0px; padding: 4px; padding-left: 8px; background-color: #555555; font-size: 24px;">
+      <font id="theTitle"><b>ROBLOX Twisted Thermos Calculator</b></font>
+      <br>
+       <button onclick="loadMenu('main')">
+            Calculator
+          </button>
+      <button onclick="loadMenu('datasetInfo')">
+            Dataset Info
+          </button>
+    </div>
+    
+      <wrapper class="menu" name="main" style="display: none;">
+        <h1>
+          ENTER THERMOS
+        </h1>
+        <h3>
+          Enter your Twisted thermodynamics data here, and we'll look at it.
+        </h3>
+        <p>
+          <b>TEMPERATURE:</b> <input id="TEMPERATURE" type="number" style="width:15%"> °F<br>
+          <b>DEWPOINT:</b> <input id="DEWPOINT" type="number" style="width:15%"> °F<br>
+          <b>CAPE:</b> <input id="CAPE" type="number" style="width:15%"> J/KG<br>
+          <b>3CAPE:</b> <input id="3CAPE" type="number" style="width:15%"> J/KG<br>
+          <b>0-3KM LAPSE:</b> <input id="0-3KM LAPSE" type="number" style="width:15%"> C/KM<br>
+          <b>3-6KM LAPSE:</b> <input id="3-6KM LAPSE" type="number" style="width:15%"> C/KM<br>
+          <b>PWAT:</b> <input id="PWAT" type="number" style="width:15%"> IN<br>
+          <b>SRH:</b> <input id="SRH" type="number" style="width:15%"> M²/S²<br>
+          <b>SURFACE RH:</b> <input id="SURFACE RH" type="number" style="width:15%"> %<br>
+          <b>700-500MB RH:</b> <input id="700-500MB RH" type="number" style="width:15%"> %<br>
+          <b>STP:</b> <input id="STP" type="number" placeholder="#" style="width:15%"><br>
+          <b>VTP:</b> <input id="VTP" type="number" placeholder="#" style="width:15%"><br>
+          WIND SPEED (Coming Soon)<br>
+          WIND DIRECTION (Coming Soon)
+        </p>
+
+        <p>
+          <button onclick="loadMenu('returnedInfo')">
+            <b>Get Information</b>
+          </button>
+          <button onclick="eraseFields()">
+            Erase Fields
+          </button>
+          <i>No Fields Required</i>
+        </p>
+        
+      </wrapper>
+    
+    <wrapper class="menu" name="datasetInfo" style="display: none;">
+      <h1>
+          DATASET INFO
+        </h1>
+        <h3>
+          Here's some general info on the dataset.
+        </h3>
+      
+      <h4>
+        Average Values:
+          <p id="datasetAvrgs">
+            DATASET
+            </p>
+      </h4>
+      
+       <h4>
+        Maximum Values:
+          <p id="datasetMaxes">
+            DATASET
+            </p>
+      </h4>
+      
+      <h4>
+        Chance of Each Risk:
+        <p id="riskChances">
+          DATASET
+        </p>
+      </h4>
+       
+    </wrapper>
+    
+    <wrapper class="menu" name="returnedInfo" style="display: none;">
+       <h1>
+      INFORMATION
+    </h1>
+      <h2>
+        <font style="color:#9999ff" id="returnAvrg">+0%</font><br>
+        <font style="color:#ccccff;font-size:16px" id="returnTA">?</font> - <font style="color:#ccccff;font-size:16px" id="returnComp">0/0</font>
+      </h2>
+    <div id="returnRes">
+      
+      </div>
+      <p>
+          <button onclick="loadMenu('main')">
+            <b>Return</b>
+          </button>
+        </p>
+    </wrapper>
+    
+    
+    
+    <wrapper id="bottom">
+    </wrapper>
+    
+    <wrapper id="sGetMid">
+      
+    </wrapper>
+    
+  <canvas id="char1" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <canvas id="char2" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+     <canvas id="char3" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+     <canvas id="char4" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <canvas id="char5" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+     <canvas id="char6" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <wrapper class="menu" name="datasetInfo" style="display: none;">
+       <h6 style="background-color:#00000000;">
+      Issues with a lot of 0's being returned below
+    </h6>
+    </wrapper>
+
+    <canvas id="char7" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+     <canvas id="char8" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <canvas id="char9" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <wrapper class="menu" name="datasetInfo" style="display: none;">
+      <h6 style="background-color:#00000000;">
+      Issues with retwisted getting 0-6% below
+    </h6>
+    </wrapper>
+     <canvas id="char10" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+     <canvas id="char11" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+     <canvas id="char12" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <canvas id="char13" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <wrapper class="menu" name="datasetInfo" style="display: none;">
+      <h6 style="background-color:#00000000;">
+      Day 2 and 3 will results will not be scanned well as seen below
+    </h6>
+    </wrapper>
+     <canvas id="char14" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    <canvas id="char15" name="chart" style="width:100%;max-width:700px;display:none;"></canvas>
+    
+    <wrapper style="display: none;">
+      <label for="file-upload" class="custom-file-upload">
+        ⁕ Upload an Image (Inprogress)
+    </label>
+      <input id="file-upload" type="file" />
+    </wrapper>
+    
+  <br>
+    <p style="background-color:#00000000;">
+          <i>All information is proccessed on-client. All data (700 rolls) is obtained from ~6 hours of rolling. Your data will <b>NOT</b> be shared with anyone.</i> In addition, data obtained from the dataset will not be perfect.
+        </p>
+    
+    <script>
+      console.warn(`\n░██████╗████████╗░█████╗░██████╗░
+██╔════╝╚══██╔══╝██╔══██╗██╔══██╗
+╚█████╗░░░░██║░░░██║░░██║██████╔╝
+░╚═══██╗░░░██║░░░██║░░██║██╔═══╝░
+██████╔╝░░░██║░░░╚█████╔╝██║░░░░░
+╚═════╝░░░░╚═╝░░░░╚════╝░╚═╝░░░░░`)
+    console.warn("STOP! You could be sharing your information with hackers if you enter anything in this console!\nDO NOT ENTER ANYTHING YOU SEE ONLINE INTO HERE! IT COULD BE MALICOUS!")
+    </script>
+
+  </body>
+</html>
