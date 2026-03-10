@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+#topBar {
+  width: 100%;
+  padding: 4px;
+}
+
+a {
+  color: #bbbbff;
+  text-decoration: none;
+  transition: color 0.5s ease;
+}
+
+body {
+   margin: auto;
+  padding: 10px;
+  background-color: #222222;
+  color: #ffffff;
+  line-height: 1.1;
+   font-family: "Noto Sans", sans-serif;
+
+}
+
+button {
+  color: #ffffff;
+  font-family: "Noto Sans", sans-serif;
+}
+
+
+a:hover {
+  color: #77bbff;
+  text-decoration: underline; /* Adds an underline on hover */
+}
+
+td {
+  padding-right: 10px; /* Space between cells */
+}
+
+.unobtainable {
+  background: -webkit-linear-gradient(#03fffd, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.event {
+  background: -webkit-linear-gradient(#03fffd, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.exclusive {
+  background: -webkit-linear-gradient(#03fffd, #f4ff85);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.supersecret {
+  background: -webkit-linear-gradient(#ffffff, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.secret {
+  background: -webkit-linear-gradient(#ff0000, #990000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.halfsecret {
+  background: -webkit-linear-gradient(#00ff00, #00aa44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.unusual {
+  background: -webkit-linear-gradient(#44ff00, #ffaa00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.redenvelope {
+   background: -webkit-linear-gradient(#ff0000, #ffaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.requiem {
+  background: -webkit-linear-gradient(#ffff00, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.curses {
+  background: -webkit-linear-gradient(#bb0000, #660000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.alpha {
+  background: -webkit-linear-gradient(#777777,#555555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: 2px #bbbbbb;
+}
+
+.reaper {
+  background: -webkit-linear-gradient(#666666, #444444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.anas-blessing {
+  background: -webkit-linear-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.insight {
+  background: -webkit-linear-gradient(#aaffff, #ddffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.luck {
+  background: -webkit-linear-gradient(#55ff55, #ccffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.magical {
+  background: -webkit-linear-gradient(#ffffaa, #ffffdd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.speed {
+  background: -webkit-linear-gradient(#55ffaa, #ccffee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.clover {
+  background: -webkit-linear-gradient(#ffaaff, #ffddff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dupe {
+  background: -webkit-linear-gradient(#777777, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.transmunity {
+  background: -webkit-linear-gradient(#aa33ff, #33aaff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.d1 {
+  background: -webkit-linear-gradient(#00aa00, #00ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.d2 {
+  background: -webkit-linear-gradient(#0055aa, #8800aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
