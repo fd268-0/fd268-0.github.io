@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <base target="_top">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wdth,wght@0,75..100,300..700;1,75..100,300..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+      body {
+   margin: auto;
+  padding: 10px;
+  margin-top: 24px;
+  min-height: 100vh;
+  max-width: 60ch;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.5;
+  background-color: #000000;
+  
+
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333333;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+h1 {
+  border-radius: 8px;
+  opacity: 1;
+  color: #ffffff;
+  text-align: center;
+}
+h2 {
+  border-radius: 8px;
+  opacity: 1;
+  color: #ffffff;
+  text-align: center;
+}
+h3 {
+  border-radius: 8px;
+  opacity: 1;
+  color: #ffffff;
+  text-align: center;
+}
+h4 {
+  border-radius: 8px;
+  opacity: 1;
+  color: #ffffff;
+  text-align: center;
+}
+h5 {
+  border-radius: 8px;
+  opacity: 1;
+  color: #ffffff;
+  text-align: center;
+}
+h6 {
+  border-radius: 8px;
+  opacity: 1;
+  color: #ffffff;
+  text-align: center;
+}
+p {
+  text-wrap: wrap;
+  padding-left: 4px;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   padding-right: 4px;
+  border-radius: 8px;
+  opacity: 1;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 16px;
+  overflow-wrap: break-word;
+
+}
+dl {
+  text-wrap: wrap;
+  padding-left: 4px;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   padding-right: 4px;
+  border-radius: 8px;
+  opacity: 1;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 16px;
+  overflow-wrap: break-word;
+
+}
+a {
+  text-wrap: wrap;
+  padding-left: 4px;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   padding-right: 4px;
+  border-radius: 8px;
+  opacity: 1;
+  font-weight: normal;
+  color: #aaaaff;
+  font-size: 16px;
+  overflow-wrap: break-word;
+
+}
+input {
+   box-sizing: border-box;
+  background-color: #99999955;
+  border-radius: 8px;
+  outline: none;
+  opacity: 1;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Space Grotesk", sans-serif;
+}
+textarea {
+   box-sizing: border-box;
+  background-color: #99999955;
+  border-radius: 8px;
+  outline: none;
+  opacity: 1;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Space Grotesk", sans-serif;
+}
+div {
+   box-sizing: border-box;
+  border-radius: 8px;
+  outline: none;
+  opacity: 1;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Space Grotesk", sans-serif;
+}
+button {
+   box-sizing: border-box;
+  background-color: #99999955;
+  border-radius: 8px;
+  outline: none;
+  opacity: 1;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+@keyframes show {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes hide {
+  from {opacity: 1}
+  to {opacity: 0}
+}
+
+@keyframes hide1 {
+  from {opacity: 1}
+  to {opacity: 0.5}
+}
+
+@keyframes show1 {
+  from {opacity: 0.5}
+  to {opacity: 1}
+}
+
+@keyframes ni {
+  0% {transform: scaleX(1)}
+  50% {transform: scaleX(0)}
+  100% {transform: scaleX(1)}
+}
+
+@keyframes ni2 {
+  0% {transform: scaleX(1)}
+  50% {transform: scaleX(0)}
+  100% {transform: scaleX(1)}
+}
+
+@keyframes ni3 {
+  0% {transform: scaleX(1)}
+  50% {transform: scaleX(0)}
+  100% {transform: scaleX(1)}
+}
+
+@keyframes ie {
+  from {transform: scaleX(1)}
+  to {transform: scaleX(0)}
+}
+
+@keyframes im {
+  from {transform: scaleX(0)}
+  to {transform: scaleX(1)}
+}
+
+@keyframes sel {
+  from {background-color: #99999955}
+  to {background-color: #00ff0055}
+}
+
+@keyframes usel {
+  from {background-color: #00ff0055}
+  to {background-color: #99999955}
+}
+
+#score {
+  font-size: 24px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+#scoreE {
+  font-size: 24px;
+  font-family: "Space Grotesk", sans-serif;
+}
+#scoreD {
+  font-family: "Space Grotesk", sans-serif;
+}
+#scoreC {
+  font-size: 24px;
+  font-family: "Space Grotesk", sans-serif;
+}
+#round {
+  font-size: 24px;
+  font-family: "Space Grotesk", sans-serif;
+}
+#roundI {
+  font-size: 14px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+button {border:0;outline:0;}
+input {border:0;outline:0;}
+
+textarea {border:0;outline:0;}
+input:focus {outline:none!important;}
+
+    </style>
+
+    <script>
+
+
+
+      var upda = false
+
+      window.addEventListener('load', function() {
+        
+        // draw
+        var jover = false
+        var active = false
+        var rs = 0
+
+        var canvas = document.getElementById('gameCanvas')
+        var ctx = canvas.getContext('2d')
+
+        class Card {
+           constructor(name, desc, boosts) {
+          this.name = name
+          this.desc = desc
+          this.boosts = boosts
+        }
+        }
+
+        class Bar {
+        constructor(start, end, color, mult, isBar) {
+          this.start = start
+          this.end = end
+          this.color = color
+          this.mult = mult
+          this.isBar = isBar
+
+          this.startingAm = end-start
+          this.dir = 1
+          if (isBar) {
+            this.sBar = true
+          }
+        }
+
+        draw() {
+          ctx.fillStyle = this.color
+          if (this.isBar) {
+            ctx.globalCompositeOperation = "source-over"
+            ctx.fillStyle = "#ffffff"
+            ctx.fillRect(this.start-10, 0, 20, 100)
+
+            ctx.fillStyle = this.color
+            ctx.fillRect(this.start-5, 10, 10, 80)
+          } else {
+            ctx.globalCompositeOperation = "destination-over"
+            if (this.end-this.start > 0) {
+              ctx.fillRect(this.start, 10, this.end-this.start, 80)
+            }
+          }
+        }
+
+        colOn() {
+          var cobj = bars.elim
+          var cnm = "elim"
+          for (var i = 0; i < Object.keys(bars).length; i++) {
+            var inf = bars[Object.keys(bars)[i]]
+
+            if (inf != this) {
+              if (inf.mult > cobj.mult && inf.start < this.start && inf.end > this.start) {
+                cobj = inf
+                cnm = Object.keys(bars)[i]
+              }
+            }
+          }
+          return [cobj, cnm]
+        }
+      }
+
+      var nerfCards = new Array()
+      nerfCards.push(new Card("<font style='color:#ff0000'>Overspeed</font>", "What's happening to my speed?", { speed: 5 }))
+      nerfCards.push(new Card("<font style='color:#ffff00'>Overmovement</font>", "What's happening to my movement?", { movement: 5 }))
+      nerfCards.push(new Card("<font style='color:#00ffff'>Undergain</font>", "You'll be losing some gain.", { gain: -4 }))
+      nerfCards.push(new Card("<font style='color:#00ff00'>Undersized</font>", "Where's my size???", { size: -0.3 }))
+      nerfCards.push(new Card("<font style='color:#ff00ff'>Mixednerf</font>", "You'll regret this.", { size: -0.1, gain: -1, movement: 1.5, speed: 2 }))
+      nerfCards.push(new Card("<font style='color:#0000ff'>Scoregone</font>", "Bye bye, score...", { score: -150 }))
+
+      var possibleSCs = new Array()
+      possibleSCs.push(new Card("Long Gain", "Gain in the long run.", { gain: 2, score: -35 }))
+      possibleSCs.push(new Card("Plus", "Size up!", { size: 0.07, score: -35 }))
+      possibleSCs.push(new Card("Slow It Down", "My speed is like 40, lemme slow it down.", { speed: -1, score: -35 }))
+      possibleSCs.push(new Card("Golden Up", "Golden up!", { "golden Size": 0.05, "golden Gain": 0.1, score: -45 }))
+      possibleSCs.push(new Card("Excellent Up", "My excellent is more excellent then yours.", { "excellent Size": 0.05, "excellent Gain": 0.1, score: -40 }))
+      possibleSCs.push(new Card("Good Up", "Makes the good even more good.", { "good Size": 0.05, "good Gain": 0.1, score: -35 }))
+      possibleSCs.push(new Card("Safe Mister", "Sure like safe, don't you?", { "safe Size": 0.05, "safe Gain": 0.1, score: -30 }))
+      possibleSCs.push(new Card("Mixed", "Doing it all.", { gain: 0.75, speed: -0.4, size: 0.04, score: -60 }))
+      possibleSCs.push(new Card("Gain At A Price", "Gain, but a slight issue arrises.", { gain: 5, size: -0.13, speed: 3, score: -50 }))
+      possibleSCs.push(new Card("Last Forever", "Make your safe the only one.", { "safe Size": 0.13, "safe Gain": 3, "golden Size": -0.15, "excellent Size": -0.17, "good Size": -0.2, score: -45 }))
+      possibleSCs.push(new Card("Movement Cancellations", "Just in case you get one of 'em.", { movement: -1.5, score: -50 }))
+
+      var possibleCards = new Array()
+      possibleCards.push(new Card("Speedy", "2*x the speed, and 2*x the gain.", { tempspeed: 8, tempgain: 8 }))
+      possibleCards.push(new Card("Jackpot", "An increased award at a price.", { "golden Gain": 2, gain: -0.7 }))
+      possibleCards.push(new Card("Score Now", "Give me score NOW!", { score: 30, tempsize: -0.3, size: -0.05, tempgain: -7 }))
+      possibleCards.push(new Card("Boring", "Yeah, play it out.", { tempsize: 1, tempgain: -6 }))
+      possibleCards.push(new Card("Risky", "Hit it then claim it.", { tempspeed: 17, tempgain: -3, "tempsafe Size": 0.1, speed: -0.6 }))
+      possibleCards.push(new Card("Normal", "Your average card...", { speed: 0.2, size: -0.02 }))
+      possibleCards.push(new Card("IMPOSSIBLE", "You're literally just gambling.", { tempspeed: 100, "good Size": 0.07, tempgain: 14, tempsize: 2.1 }))
+      possibleCards.push(new Card("goldenSmall", "You're forever making golden smaller.", { tempspeed: -5, "golden Size": -0.3, "golden Gain": 5, tempgain: 15 }))
+      possibleCards.push(new Card("Don't Need It", "Deleting Excellent...", { "excellent Size": -0.5, "excellent Gain": 5, score: 10, tempsize: 1, "tempsafe Size": -2 }))
+      possibleCards.push(new Card("Speed Up!", "Speed Up!", { speed: 0.5, tempgain: 2 }))
+      possibleCards.push(new Card("Small", "Everything's so small.", { tempsize: -0.4, tempgain: 10, "safe Size": -0.3 }))
+      possibleCards.push(new Card("All In", "One thing to go for.", { tempsize: -1, "tempgolden Size": 1, speed: 0.15, tempgain: 20 }))
+      possibleCards.push(new Card("It's Fine", "If you fail, don't worry.", { tempspeed: 90, "tempsafe Size": 13, "tempsafe Gain": -25, score: -20, tempsize: 0.05, tempgain: 20, speed: 0.2 }))
+      possibleCards.push(new Card("Gain Up", "Long term gain for short term whatever.", { gain: 0.5, tempsize: -0.3, tempspeed: 10 }))
+      possibleCards.push(new Card("Easy Mode", "Let's go easy on you.", { tempgain: -5, tempspeed: -2, tempsize: 0.3, speed: 0.2 }))
+      possibleCards.push(new Card("Forever Speedier", "You're really into it.", { speed: 2, tempgain: 15 }))
+      possibleCards.push(new Card("That's Good", "It in fact is!", { tempgain: -10, "tempgood Gain": 30, "good Size": -0.15 }))
+      possibleCards.push(new Card("pain", "I mean, if you wanna wait...", { tempspeed: -10, tempsize: -0.5, tempgain: 10 }))
+      possibleCards.push(new Card("Normal++", "Increased version of Normal.", { size: -0.02, gain: 0.1, speed: 0.3, "safe Gain": -0.1 }))
+      possibleCards.push(new Card("Regulars Now!", "I WANT ALL REGULAR DEBUFFS, NOW!", { tempsize: -0.2, tempgain: 2, tempspeed: 1.8, speed: 0.2  }))
+      possibleCards.push(new Card("Paperthin", "they are so small!", { tempspeed: -5, tempsize: -0.65, tempgain: 2.5, "tempgolden Gain": 2.5, "tempexcellent Gain": 1.5, "tempsafe Gain": -12.5, }))
+      possibleCards.push(new Card("mini impossible", "You're basically just gambling.", { tempspeed: 30, "safe Size": 0.03, tempgain: 5, tempsize: 0.5 }))
+      possibleCards.push(new Card("Size-down", "A bit less the size, and 2*x the gain.", { tempsize: -0.45, tempgain: 8 }))
+      possibleCards.push(new Card("Classic", "What could possibly await?", { tempsize: (-0.1)-Math.random()*0.1, tempspeed: 1.5+Math.random()*1.5, tempgain: 2+Math.random()*2 }))
+      possibleCards.push(new Card("My Bars!", "Where are they going???", { tempgain: 4, speed: 0.2, tempmovement: 3}))
+      possibleCards.push(new Card("Moving Pain", "Miniscule, and moving.", { tempsize: -0.4, tempmovement: 5, tempgain: 5, "safe Size": -0.03}))
+      
+      possibleCards.push(new Card("There They Go", "I can't catch up!", { tempsize: 0.1, tempmovement: 15, tempgain: 9, "tempsafe Gain": -9, speed: 0.5}))
+      possibleCards.push(new Card("Everything Now!", "I WANT EVERYTHING, NOW!", { tempsize: -0.18, tempgain: 3, tempspeed: 2, tempmovement: 2, size: -0.02}))
+      possibleCards.push(new Card("Movin' Forever", "You'll regret this later.", { tempgain: 15, movement: 0.6, tempmovement: 0.9}))
+      possibleCards.push(new Card("speed extended", "I hope you get good RNG!", { tempsize: -0.1, tempmovement: 20, tempspeed: 10, tempgain: 9, size: -0.02, "golden Size": 0.04}))
+      possibleCards.push(new Card("unsafe", "this safe isn't safe no more", {"safe Gain": 2, "safe Movement": 2, size: -0.02}))
+      possibleCards.push(new Card("The Wild West", "The second wave of gambling.", {tempmovement: 100, tempgain: 10, tempsize: 1.8, gain: 0.5, "good Size": 0.07}))
+      possibleCards.push(new Card("Sacrifice Safe", "For the greater good.", { "safe Size": -0.3, gain: 0.7, "tempsafe Size": -0.7, tempgain: 3}))
+
+
+      var selCard = null
+      var data = new Object()
+      var bars = new Object()
+      var cards = new Array()
+      var sCB = ""
+      var shopCards = new Array()
+      var scAc = false
+      cards.push(new Card("test", "WOAH", { speed: 2, tempgain: 5 }))
+      cards.push(new Card("test2", "WOAH2", { speed: 4, tempgain: 10 }))
+      cards.push(new Card("impossible", "have fun", { tempspeed: 500, tempsize: 3, "safe Size": 0.1, "tempsafe Gain": 100, score: -50 }))
+
+      function reloadShopCards() {
+        scAc = false
+        sCB = ""
+        shopCards = new Array()
+        shopCards.push(possibleSCs[Math.floor(Math.random() * possibleSCs.length)])
+        shopCards.push(possibleSCs[Math.floor(Math.random() * possibleSCs.length)])
+        shopCards.push(possibleSCs[Math.floor(Math.random() * possibleSCs.length)])
+        shopCards.push(new Card("Redraw Round Cards", "x", { score: -25 }))
+
+        /*document.getElementById("s1").style["animation-duration"] = "1s"
+        document.getElementById("s2").style["animation-duration"] = "1s"
+        document.getElementById("s3").style["animation-duration"] = "1s"
+        document.getElementById("s1").style["animation-name"] = "ni"
+        document.getElementById("s2").style["animation-name"] = "ni"
+        document.getElementById("s3").style["animation-name"] = "ni"
+
+        setTimeout(() => {
+          document.getElementById("s1").style["color"] = "#ffffff00"
+          document.getElementById("s2").style["color"] = "#ffffff00"
+          document.getElementById("s3").style["color"] = "#ffffff00"
+          document.getElementById("s1").style["border-width"] = "4px"
+          document.getElementById("s1").style["background-color"] = "#111111"
+          document.getElementById("s2").style["border-width"] = "4px"
+          document.getElementById("s2").style["background-color"] = "#111111"
+          document.getElementById("s3").style["border-width"] = "4px"
+          document.getElementById("s3").style["background-color"] = "#111111"
+          document.getElementById("s1").innerHTML = lText(-1, shopCards[0])
+          document.getElementById("s2").innerHTML = lText(-1, shopCards[1])
+          document.getElementById("s3").innerHTML = lText(-1, shopCards[2])
+        }, 500);*/
+        document.getElementById("s1").innerHTML = lText(-1, shopCards[0])
+          document.getElementById("s2").innerHTML = lText(-1, shopCards[1])
+          document.getElementById("s3").innerHTML = lText(-1, shopCards[2])
+      }
+
+      function showShopCards() {
+        document.getElementById("s1").style["animation-name"] = ""
+        document.getElementById("s2").style["animation-name"] = ""
+        document.getElementById("s3").style["animation-name"] = ""
+        document.getElementById("s4").style["animation-name"] = ""
+        document.getElementById("s1").style["animation-duration"] = "1s"
+        document.getElementById("s2").style["animation-duration"] = "1s"
+        document.getElementById("s3").style["animation-duration"] = "1s"
+        document.getElementById("s4").style["animation-duration"] = "1s"
+        scAc = true
+        setTimeout(() => {
+          document.getElementById("s1").style["animation-name"] = "ni2"
+          document.getElementById("s2").style["animation-name"] = "ni2"
+          document.getElementById("s3").style["animation-name"] = "ni2"
+          document.getElementById("s4").style["animation-name"] = "ni2"
+        }, 10);
+        setTimeout(() => {
+          document.getElementById("s1").style["color"] = "#ffffff"
+          document.getElementById("s2").style["color"] = "#ffffff"
+          document.getElementById("s3").style["color"] = "#ffffff"
+          document.getElementById("s4").style["color"] = "#ffffff"
+          document.getElementById("s1").style["border-width"] = "0px"
+          document.getElementById("s1").style["background-color"] = "#666666"
+          document.getElementById("s2").style["border-width"] = "0px"
+          document.getElementById("s2").style["background-color"] = "#666666"
+          document.getElementById("s3").style["border-width"] = "0px"
+          document.getElementById("s3").style["background-color"] = "#666666"
+          document.getElementById("s4").style["border-width"] = "0px"
+          document.getElementById("s4").style["background-color"] = "#666666"
+        }, 500);
+      }
+
+      function buyCard(n) {
+        if (active == false && (0-shopCards[n].boosts["score"]) <= data.score) {
+          if (shopCards[n].name == "Redraw Round Cards") {
+            document.getElementById("i1").style["animation-name"] = "ni2"
+            document.getElementById("i2").style["animation-name"] = "ni3"
+            document.getElementById("i3").style["animation-name"] = "ni2"
+            setTimeout(() => {
+          mCards()
+        }, 10);
+          }
+        appTempReal(shopCards[n])
+        document.getElementById(`s${n+1}`).style["animation-name"] = "ni3"
+        sCB += `[${n}]`
+        setTimeout(() => {
+          document.getElementById(`s${n+1}`).style["color"] = "#ffffff00"
+          document.getElementById(`s${n+1}`).style["border-width"] = "4px"
+          document.getElementById(`s${n+1}`).style["background-color"] = "#111111"
+        }, 500);
+        }
+      }
+
+      function init() {
+        document.getElementById("scoreX").style["animation-name"] = ""
+        document.getElementById("i1").style["transform"] = "scaleX(0)"
+        document.getElementById("i2").style["transform"] = "scaleX(0)"
+        document.getElementById("i3").style["transform"] = "scaleX(0)"
+        reloadShopCards()
+        if (jover) {
+          document.getElementById("i2").style["animation-name"] = "ie"
+        }
+        jover = false
+        active = false
+        document.getElementById("scoreC").style.color = "#ffffff"
+        document.getElementById("scoreC").innerHTML = "BEGIN"
+        data = new Object()
+        data.score = 0
+        data.round = 0
+        data.speed = 10
+        data.gain = 10
+        data.totalscore = 0
+        data.size = 1
+        data.movement = 0
+        resTemp()
+        bars = new Object()
+        bars.bar = new Bar(0,0,"#cccccc",0,true)
+        bars.golden = new Bar(0, 25,"#ffff00",2.5)
+        bars.excellent = new Bar(0, 35,"#00ff00",1.5)
+        bars.good = new Bar(0, 55,"#008800",1.25)
+        bars.safe = new Bar(0, 70,"#888888",1)
+        bars.elim = new Bar(0,1000,"#ff0000",0)
+        updBoostDescs()
+        scAc = false
+        if (document.getElementById("shope").style.display != "none") {
+              document.getElementById("shope").style.display = "none"
+              
+            }
+      }
+
+      function resTemp() {
+           
+          for (var i = 0; i < Object.keys(data).length; i ++) {
+            var key = Object.keys(data)[i]
+            var val = data[key]
+            if (key.indexOf("temp") != -1) {
+              data[key] = 0
+            }
+          }
+          data.tempspeed = 0
+          data.tempgain = 0
+          data.tempsize = 0
+          data.tempscore = 0
+          data.tempmovement = 0
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        function resizeCanvas() {
+          var canvas = document.getElementById('gameCanvas')
+          var ctx = canvas.getContext('2d')
+
+          canvas.width = 1000
+          canvas.height = 100
+
+          canvas.style.height = canvas.clientWidth/10
+          
+          //ctx.scale((canvas.clientWidth),1)
+        }
+
+        resizeCanvas()
+
+        function clear() {
+          ctx.clearRect(0,0,1000,100)
+        }
+
+        function draw() {
+          requestAnimationFrame(draw);
+          clear()
+          for (var i = 0; i < Object.keys(bars).length; i++) {
+            bars[Object.keys(bars)[i]].draw()
+          }
+        }
+
+        draw()
+        init()
+
+        function isTouchDevice() {
+            return (('ontouchstart' in window) ||
+                 (navigator.maxTouchPoints > 0) ||
+                      (navigator.msMaxTouchPoints > 0));
+                      }
+
+          var tEn = true
+          var activey = false
+          var mEn = true
+
+          document.addEventListener("keydown", (event) => {
+            if (event.code == "Space" && activey == false) {
+              activey = true
+              upd()
+            }
+            if (event.code == "Digit1") {
+              load(0)
+            }
+            if (event.code == "Digit2") {
+              load(1)
+            }
+            if (event.code == "Digit3") {
+              load(2)
+            }
+            if (event.code == "Digit4") {
+              cbuy(0)
+            }
+            if (event.code == "Digit5") {
+              cbuy(1)
+            }
+            if (event.code == "Digit6") {
+              cbuy(2)
+            }
+            if (event.code == "Digit7") {
+              cbuy(3)
+            }
+            if (event.code == "Digit8") {
+              doBuy()
+            }
+            if (event.code == "Digit9") {
+              cancelBuy()
+            }
+          })
+
+          document.addEventListener("keyup", (event) => {
+            activey = false
+          })
+
+         document.getElementById("scoreC").addEventListener("mousedown", (event) => {
+          if (mEn) {
+            upd()
+            tEn = false
+            mEn = true
+          }
+        })
+
+        document.getElementById("scoreC").addEventListener("touchstart", (event) => { 
+          if (tEn) {
+            upd()
+            mEn = false
+            tEn = true
+          }
+
+        })
+
+        function appTempReal(cardaa) {
+          var cardi = cards[selCard]
+          if (cardaa) {
+            cardi = cardaa
+          }
+          resTemp()
+          for (var i = 0; i < Object.keys(cardi.boosts).length; i ++) {
+            var key = Object.keys(cardi.boosts)[i]
+            var val = cardi.boosts[key]
+              if (key.indexOf("temp") != -1) {
+                data[`${key}`] = val
+              } else {
+                if (data[`${key}`] != null) {
+                  data[`${key}`] += val
+                } else {
+                  data[`${key}`] = val
+                }
+            }
+          }
+          updBoostDescs()
+        }
+
+        
+
+        function appTemp(cardaa) {
+          var cardi = cards[selCard]
+          if (cardaa) {
+            cardi = cardaa
+          }
+          resTemp()
+          for (var i = 0; i < Object.keys(cardi.boosts).length; i ++) {
+            var key = Object.keys(cardi.boosts)[i]
+            var val = cardi.boosts[key]
+            if (key.indexOf("temp") != -1) {
+              data[`${key}`] = val
+            } else {
+              if (data[`temp${key}`] != null) {
+                data[`temp${key}`] += val
+              } else {
+                data[`temp${key}`] = val
+              }
+            }
+          }
+          updBoostDescs()
+        }
+
+        function resStuff() {
+          if (document.getElementById("i1").style["animation-name"] == "sel") {
+            document.getElementById("i1").style["animation-name"] = "usel"
+          }
+          if (document.getElementById("i2").style["animation-name"] == "sel") {
+            document.getElementById("i2").style["animation-name"] = "usel"
+          }
+          if (document.getElementById("i3").style["animation-name"] == "sel") {
+            document.getElementById("i3").style["animation-name"] = "usel"
+          }
+          document.getElementById("i3").style["background-color"] = "#99999955"
+          document.getElementById("i2").style["background-color"] = "#99999955"
+          document.getElementById("i1").style["background-color"] = "#99999955"
+        }
+
+        function load(x) {
+          if (cAc) {
+            selCard = x
+            appTemp()
+
+            resStuff()
+
+            document.getElementById("scoreC").style.color = "#ffffff"
+            document.getElementById("scoreC").innerHTML = "NEXT"
+
+            document.getElementById(`i${x+1}`).style["animation-name"] = "sel"
+            document.getElementById(`i${x+1}`).style["background-color"] = "#00ff0055"
+          }
+        }
+
+        document.getElementById("i1").addEventListener("mousedown", (event) => { 
+          load(0)
+        })
+
+        document.getElementById("i2").addEventListener("mousedown", (event) => { 
+          load(1)
+        })
+
+        document.getElementById("i3").addEventListener("mousedown", (event) => { 
+          load(2)
+        })
+
+        var bC = null
+
+        document.getElementById("s1").addEventListener("mousedown", (event) => {
+          cbuy(0)
+        })
+        document.getElementById("s2").addEventListener("mousedown", (event) => {
+          cbuy(1)
+        })
+        document.getElementById("s3").addEventListener("mousedown", (event) => {
+          cbuy(2)
+        })
+        document.getElementById("s4").addEventListener("mousedown", (event) => {
+          cbuy(3)
+        })
+
+        function cancelBuy() {
+          if (bC != null) {
+            scAc = true
+            bC = null
+            document.getElementById("confirmBuy").style["animation-name"] = "hide"
+            document.getElementById("confirmBuy").style["animation-duration"] = "0.3s"
+
+            setTimeout(() => {
+              document.getElementById("confirmBuy").style.display = "none"
+            }, 250)
+            
+          }
+        }
+
+        function doBuy() {
+          if (bC != null) {
+            scAc = true
+            buyCard(bC)
+            bC = null
+            document.getElementById("confirmBuy").style["animation-name"] = "hide"
+            document.getElementById("confirmBuy").style["animation-duration"] = "0.3s"
+            
+            setTimeout(() => {
+              document.getElementById("confirmBuy").style.display = "none"
+            }, 250)
+          }
+        }
+
+        document.getElementById("nBuy").addEventListener("mousedown", (event) => {
+          cancelBuy()
+        })
+        document.getElementById("cBuy").addEventListener("mousedown", (event) => {
+          doBuy()
+        })
+
+        function cbuy(n) {
+          if (scAc && shopCards[n].bought != true && sCB.indexOf(`[${n}]`) == -1) {
+            scAc = false
+            bC = n
+            document.getElementById("confirmBuy").style["animation-name"] = "show"
+            document.getElementById("confirmBuy").style["animation-duration"] = "0.5s"
+            document.getElementById("confirmBuy").style.display = "block"
+            document.getElementById("btext").innerHTML = `Are you sure you'd like to buy <b>${shopCards[n].name}</b>?<br><i><b>${shopCards[n].boosts.score}</b> Score</i>`
+            if ((0-shopCards[n].boosts["score"]) <= data.score) {
+              document.getElementById("cBuy").style["background-color"] = "#99999955"
+              document.getElementById("cBuy").innerHTML = "Buy"
+            } else {
+              document.getElementById("cBuy").style["background-color"] = "#99333355"
+              document.getElementById("cBuy").innerHTML = "Not Enough Score"
+            }
+          }
+        }
+
+
+        function lText(n, carda) {
+          icard = cards[n]
+          if (carda) {
+            icard = carda
+          }
+          var eText = ""
+          var xx = false
+          for (var i = 0; i < Object.keys(icard.boosts).length; i ++) {
+            var key = Object.keys(icard.boosts)[i]
+            var val = icard.boosts[key]
+            var plus = "+"
+            if (val <= 0) {
+              plus = ""
+            }
+            if (key.indexOf("temp") != -1 && key.indexOf("dns") == -1) {
+              eText = `${eText}<br>${plus}${Math.round(val*100)/100} ${key.substring(4).substring(0,1).toUpperCase()}${key.substring(4).substring(1)}`
+            } else {
+              xx = true
+            }
+          }
+          if (xx && (!carda)) {
+            eText = `${eText}<br><i>PERMANENT</i>`
+          } else if (carda) {
+            eText = `${eText}<br><b>${icard.boosts["score"]}</b> Score`
+          }
+          for (var i = 0; i < Object.keys(icard.boosts).length; i ++) {
+            var key = Object.keys(icard.boosts)[i]
+            var val = icard.boosts[key]
+            var plus = "+"
+            if (val <= 0) {
+              plus = ""
+            }
+            if (key.indexOf("temp") == -1 && key.indexOf("dns") == -1 && (!carda || key != "score")) {
+              eText = `${eText}<br><i>${plus}${Math.round(val*100)/100} ${key.substring(0,1).toUpperCase()}${key.substring(1)}<i>`
+            }
+          }
+          return `<b>${icard.name}</b><br>${icard.desc}<font style="opacity:0.7">${eText}</font>`
+        }
+
+        function selCard(n) {
+          selCard = n
+          document.getElementById("scoreC").style.color = "#ffffff"
+          document.getElementById("scoreC").innerHTML = "START"
+        }
+
+        async function mCards() {
+          cards = new Array()
+
+          console.log()
+
+          if ((data.round+1) % 15 == 0) {
+            cards.push(nerfCards[Math.floor(Math.random() * nerfCards.length)])
+            cards.push(nerfCards[Math.floor(Math.random() * nerfCards.length)])
+            cards.push(nerfCards[Math.floor(Math.random() * nerfCards.length)])
+          } else {
+            cards.push(possibleCards[Math.floor(Math.random() * possibleCards.length)])
+            cards.push(possibleCards[Math.floor(Math.random() * possibleCards.length)])
+            cards.push(possibleCards[Math.floor(Math.random() * possibleCards.length)])
+          }
+
+          updBoostDescs()
+
+
+          document.getElementById("i1").innerHTML = lText(0)
+          document.getElementById("i2").innerHTML = lText(1)
+          document.getElementById("i3").innerHTML = lText(2)
+
+          document.getElementById("i1").style["color"] = "#ffffff00"
+          document.getElementById("i2").style["color"] = "#ffffff00"
+          document.getElementById("i3").style["color"] = "#ffffff00"
+
+          document.getElementById("i1").style["transform"] = "scaleX(1)"
+          document.getElementById("i2").style["transform"] = "scaleX(1)"
+          document.getElementById("i3").style["transform"] = "scaleX(1)"
+
+          document.getElementById("i1").style["animation-duration"] = "1s"
+          document.getElementById("i2").style["animation-duration"] = "1s"
+          document.getElementById("i3").style["animation-duration"] = "1s"
+
+          document.getElementById("i1").style["animation-name"] = "ni"
+          document.getElementById("i2").style["animation-name"] = "ni2"
+          document.getElementById("i3").style["animation-name"] = "ni"
+
+          setTimeout(() => {
+            document.getElementById("i1").style["color"] = "#ffffff"
+            document.getElementById("i2").style["color"] = "#ffffff"
+            document.getElementById("i3").style["color"] = "#ffffff"
+          }, 500);
+
+          setTimeout(() => {
+            document.getElementById("i1").style["animation-duration"] = "0.5s"
+            document.getElementById("i2").style["animation-duration"] = "0.5s"
+            document.getElementById("i3").style["animation-duration"] = "0.5s"
+            cAc = true
+          }, 950);
+          
+        }
+
+        function upd() {
+          upda = false
+          if (active) {
+            active = false
+            selCard = null
+            
+            cAc = false
+
+            var mp = 1
+            if (data[`temp${bars.bar.colOn()[1]} Gain`]) {
+              mp += (data[`temp${bars.bar.colOn()[1]} Gain`])
+            }
+            if (data[`${bars.bar.colOn()[1]} Gain`]) {
+              mp += (data[`${bars.bar.colOn()[1]} Gain`])
+            }
+
+            
+
+            if (bars.bar.colOn()[1] == "elim") {
+              document.getElementById("scoreC").style.color = "#ff9999"
+              document.getElementById("scoreC").innerHTML = "RESTART"
+              document.getElementById("scoreX").innerHTML = ` +${data.round*10}`
+              document.getElementById("scoreX").style["animation-duration"] = "2.5s"
+              document.getElementById("scoreX").style["animation-name"] = "hide"
+              data.score += data.round*10
+              jover = true
+            } else {
+              document.getElementById("scoreC").style.color = "#ff888855"
+              document.getElementById("scoreC").innerHTML = "SELECT A CARD"
+              data.score += (data.gain+data.tempgain+mp)*bars.bar.colOn()[0].mult
+              data.totalscore += (data.gain+data.tempgain+mp)*bars.bar.colOn()[0].mult
+              data.totalscore += 10
+
+              data.round += 1
+
+              mCards()
+              document.getElementById("leftR").innerHTML = `${5-((data.round % 5))}`
+              document.getElementById("leftS").innerHTML = "s"
+              document.getElementById("leftM").style.color = "#aaaaaa"
+              if (5-((data.round % 5)) == 1) {
+                document.getElementById("leftS").innerHTML = ""
+                document.getElementById("leftM").style.color = "#ffffff"
+                document.getElementById("leftR").innerHTML = "the next"
+              }
+
+              if (document.getElementById("shope").style.display != "none") {
+                scAc = true
+                document.getElementById("shope").style["opacity"] = 1
+                document.getElementById("shope").style["animation-duration"] = "1s"
+                  document.getElementById("shope").style["animation-name"] = "show1"
+                  
+              }
+
+              if (data.round % 5 == 0) {
+                if (document.getElementById("shope").style.display == "none") {
+                  document.getElementById("shope").style["opacity"] = 1
+                  document.getElementById("shope").style.display = "block"
+                  document.getElementById("shope").style["animation-duration"] = "1s"
+                  document.getElementById("shope").style["animation-name"] = "show"
+                }
+                reloadShopCards()
+                showShopCards()
+              }
+              
+
+              canvas.style["animation-name"] = ""
+              document.getElementById("scoreC").style["animation-name"] = ""
+            }
+
+            resTemp()
+            updBoostDescs()
+            
+
+            
+          } else if ((selCard != null || data.round == 0) && jover == false) {
+            cAc = false
+            if (document.getElementById("shope").style.display != "none") {
+              scAc = false
+              bC = null
+              document.getElementById("confirmBuy").style.display = "none"
+
+              document.getElementById("shope").style["opacity"] = 0.5
+              document.getElementById("shope").style["animation-duration"] = "1s"
+              document.getElementById("shope").style["animation-name"] = "hide1"
+              
+            }
+            document.getElementById("scoreC").style.color = "#ffffff"
+            document.getElementById("scoreC").innerHTML = "STOP"
+
+            
+
+            if (selCard != null) {
+              appTempReal()
+              document.getElementById("i1").style["transform"] = "scaleX(0)"
+              document.getElementById("i2").style["transform"] = "scaleX(1)"
+              document.getElementById("i3").style["transform"] = "scaleX(0)"
+
+              document.getElementById("i2").style["animation-duration"] = "1s"
+
+              document.getElementById("i3").style["background-color"] = "#99999955"
+              document.getElementById("i2").style["background-color"] = "#99999955"
+              document.getElementById("i1").style["background-color"] = "#99999955"
+
+              document.getElementById("i1").style["animation-name"] = "ie"
+              document.getElementById("i2").style["animation-name"] = "ni"
+              document.getElementById("i3").style["animation-name"] = "ie"
+
+              canvas.style["animation-name"] = "show"
+              canvas.style["animation-duration"] = "1s"
+              document.getElementById("scoreC").style["animation-name"] = "show"
+              document.getElementById("scoreC").style["animation-duration"] = "1s"
+
+              setTimeout(() => {
+              
+              document.getElementById("i2").innerHTML = lText(selCard)
+              }, 500);
+            }
+            
+            start()
+
+          } else if (jover == true) {
+            setTimeout(() => {
+              init()
+            }, 50)
+          
+          }
+        }
+
+        async function start() {
+          active = true
+          bars.bar.start = 0
+          for (var i = 0; i < Object.keys(bars).length; i++) {
+            var j = bars[Object.keys(bars)[i]]
+            var chng = j.startingAm
+
+            if (j.mult > 0) {
+              chng = chng * (data.size+data.tempsize)
+            }
+
+            if (data[`temp${Object.keys(bars)[i]} Size`]) {
+              chng += j.startingAm * (data[`temp${Object.keys(bars)[i]} Size`])
+            }
+            if (data[`${Object.keys(bars)[i]} Size`]) {
+              chng += j.startingAm * (data[`${Object.keys(bars)[i]} Size`])
+            }
+
+            
+
+            j.start = Math.random()*(1000-(chng))
+            j.end = j.start+chng
+
+          }
+        }
+
+        function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+        function updBoostDescs() {
+          var values = new Object()
+          var val2 = new Object()
+          document.getElementById("stuff").innerHTML = ``
+          for (var i = 0; i < Object.keys(data).length; i ++) {
+            var key = Object.keys(data)[i]
+            var val = data[key]
+            if (key.indexOf("temp") != -1) {
+              key = key.substring(4)
+            }
+            if ( Object.keys(data)[i].indexOf("temp") != -1 && val != 0) {
+              val2[key] = val
+            }
+            if (key.indexOf("dns") == -1) {
+              if (key != "score" && key != "round" && key != "totalscore") {
+                if (values[key] != null) {
+                  values[key] += val
+                } else {
+                  values[key] = val
+                }
+              }
+            }
+          
+          }
+
+          for (var i = 0; i < Object.keys(values).length; i ++) {
+            var key = Object.keys(values)[i]
+            var val = values[key]
+            if (val != 0) {
+              var y = ""
+              var z = ""
+              var info = ""
+              if (val2[key] != null) {
+                y = `style="background-color:#aaffff55"`
+                z = `<s>${Math.round((val-val2[key])*100)/100}</s> `
+              }
+              if (key == "gain") {
+                info = "Base score from a bar.<br><font style='color:#888888'>Safe: x1</font><br><font style='color:#008800'>Good: x1.25</font><br><font style='color:#00ff00'>Excellent: x1.5</font><br><font style='color:#ffff00'>Golden: x2.5</font>"
+              }
+              if (key == "size") {
+                info = "How big bars are."
+              }
+              if (key == "speed") {
+                info = "How fast your bar goes."
+              }
+              if (key == "movement") {
+                info = "How fast all bars go."
+              }
+              if (key.indexOf(" Size") != -1) {
+                info = `How big the ${key.substring(0,key.indexOf(" Size"))} bar is.`
+              }
+              if (key.indexOf(" Gain") != -1) {
+                info = `Adds to the score from the ${key.substring(0,key.indexOf(" Gain"))} bar.`
+              }
+              if (key.indexOf(" Movement") != -1) {
+                info = `Adds to the speed the ${key.substring(0,key.indexOf(" Movement"))} bar goes.`
+              }
+               document.getElementById("stuff").innerHTML += ` <button ${y} class="tooltip"><font style="color:#009999">${z}</font>${Math.round(((val))*100)/100} ${key.substring(0,1).toUpperCase()}${key.substring(1)}<span class="tooltiptext">${info}</span></button>`
+            }
+          }
+        }
+
+        async function frame(dt) {
+          var fps = 1/(dt/1000)
+          var wT = 60/fps
+          if (wT > 10) {
+            wT = 10
+          }
+          bars.bar.color = bars.bar.colOn()[0].color
+          rs = lerp(rs, data.score+data.tempscore, 0.1)
+          var m = "".padEnd(5-Math.round(rs).toString().length, "0")
+          var m2 = "".padEnd(3-Math.round(data.round).toString().length, "0")
+          document.getElementById("score").innerHTML = `<font style="color:#666666">${m}</font>${Math.round(rs)}`
+          document.getElementById("round").innerHTML = `<font style="color:#666666">${m2}</font>${Math.round(data.round)}`
+        
+
+          if (active) {
+            bars.bar.start += Math.max(0.5,(data.speed+data.tempspeed))*(bars.bar.dir)*(wT)
+
+            for (var i = 0; i < Object.keys(bars).length; i++) {
+              var item = bars[Object.keys(bars)[i]]
+              if (Object.keys(bars)[i] != "bar") {
+                var am = 0
+                if (data[`temp${Object.keys(bars)[i]} Movement`]) {
+                  am += (data[`temp${Object.keys(bars)[i]} Movement`])
+                }
+                if (data[`${Object.keys(bars)[i]} Movement`]) {
+                  am += (data[`${Object.keys(bars)[i]} Movement`])
+                }
+                item.start = item.start + Math.max(0,(data.movement+data.tempmovement+am))*item.dir*(wT)
+                item.end = item.end + Math.max(0,(data.movement+data.tempmovement+am))*item.dir*(wT)
+                if (item.end > 1000) {
+                  item.dir = -1
+                }
+                if (item.start < 0) {
+                  item.dir = 1
+                }
+              }
+            }
+
+          if (bars.bar.start > 990) {
+            bars.bar.start = 990
+            bars.bar.dir = -1
+          }
+           if (bars.bar.start < 10) {
+            bars.bar.start = 10
+            bars.bar.dir = 1
+          }
+
+          }
+        }
+
+        var lastUpdate = Date.now();
+
+        async function calc() {
+          var now = Date.now();
+          var dt = now - lastUpdate;
+          lastUpdate = now;
+          frame(dt)
+          setTimeout(calc, 1);
+        }
+
+        calc()
+
+
+
+
+       
+      })
+
+
+
+
+
+
+
+      // leaderboard stuff
+
+      
+
+    </script>
+  </head>
+  <body>
+
+
+    <p>
+      <canvas id="gameCanvas" style="width:100%;height:20%;background-color:#00000000"></canvas><br>
+      <button id="scoreC" style="width:100%">BEGIN</button><br> <br>
+      <font id="scoreD">SCORE</font> <b><font id="score"></font></b><font id="scoreX" style="opacity:0"></font><br>
+      <font id="scoreD">ROUND</font> <b><font id="round"></font></b><br>
+      <font id="scoreD">MODIFIERS</font><font id="stuff"></font></p>
+
+      <h3 id="cards">
+        <button id="i1" style="transform: scaleX(0); transform-origin: center; width: 30%;animation-name:usel;animation-duration: 0.5s;height:100%">x</button>
+        <button id="i2" style="transform: scaleX(0); transform-origin: center; width: 30%;animation-name:ie;animation-duration: 0.01s;height:100%">get started!</button>
+        <button id="i3" style="transform: scaleX(0); transform-origin: center; width: 30%;animation-name:usel;animation-duration: 0.5s;height:100%">x</button>
+      </h3>
+
+      <p id="shope" style="background-color: #111111;border-color: #aaaaaa; border-width: 2px; border-style: solid; display: none;">
+        <font id="scoreE"><b><i>THE SHOP</b><i></font> <i>Boost your run!</i>
+        <font id="shop" style="align-items: center;    display: block; margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;text-align: center;">
+          <i>BOOSTS</i><br>
+          <button id="s1" style="transform: scaleX(1); background-color:#00000000; border-color: #666666; border-width: 2px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff00">t<br>t<br>t</button>
+          <button id="s2" style="transform: scaleX(1); background-color:#00000000; border-color: #666666; border-width: 2px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff00">t<br>t<br>t</button>
+          <button id="s3" style="transform: scaleX(1); background-color:#00000000; border-color: #666666; border-width: 2px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff00">t<br>t<br>t</button>
+          <br><i>REDRAWS</i><br>
+          <button id="s4" style="transform: scaleX(1); background-color:#00000000; border-color: #666666; border-width: 2px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff00">Redraw Round Cards <font style="opacity:0.7"><b>25</b> Score</font></button>
+        </font>
+        <font id="leftM" style="text-align:center;color:#aaaaaa">Restocks in <font id="leftR"></font> round<font id="leftS"></font></font>
+      </p>
+
+      <wrapper id="confirmBuy" style="display:none"><p style="display: flex;position:fixed;justify-content: center;align-items: center;text-align: center; width: 100vw; height: 100vh; background-color:#00000055; top: -20px; animation-name: show; animation-duration: 0.5s"></p><p style="text-align: center;position:fixed; background-color: #111111; width: 100%; border-radius: 0px;  top: 50%; left: 0%; animation-name: show; animation-duration: 0.5s"><font id="btext"></font><br><button id="cBuy" style="font-size: 20px">Buy</button> <button id="nBuy" style="font-size: 20px">Cancel</button></p></wrapper>
+
+
+
+  </body>
+</html>
