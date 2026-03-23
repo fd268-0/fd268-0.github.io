@@ -4,6 +4,7 @@
 var topbarBegin = '<div id="topBar" style="width:calc(100% - 218px);background-color:#223322;border-radius:8px;padding-left:8px"></div>'
 var topbarList = new Array()
 topbarList.push(["<b>Home</b>","/"])
+topbarList.push(["About","/about"])
 
 window.addEventListener("load", function() {
 
