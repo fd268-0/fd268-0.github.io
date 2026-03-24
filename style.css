@@ -25,6 +25,7 @@ button {
   color: #ffffff;
   font-family: "Noto Sans", sans-serif;
   border: none;
+  outline: none;
 }
 
 
