@@ -1,0 +1,401 @@
+<head>
+  <script src='/topbar.js'></script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <script>
+       window.addEventListener('load', function() {
+        document.querySelectorAll("*").forEach(e=>{e.style["touch-action"]="manipulation"}),new MutationObserver(e=>{e.forEach(function(e){for(var o=0;o<e.addedNodes.length;o++)e.addedNodes[o].style["touch-action"]="manipulation"})}).observe(document.body,{childList:!0,subtree:!0});
+       })
+      var points = 0
+      var pmult = 1
+      var pmmult = 1
+      var stars = 0
+      var smult = 1
+      var smmult = 1
+      var prestiges = 0
+      var rmult = 1
+      var rmmult = 1
+      var startPoints = 0
+      var resets = 0
+      var emult = 1
+      var emmult = 1
+      var ascends = 0
+      var amult = 1
+      var ammult = 1
+      var autopoints = 0
+      var logDec = 0
+      var moreUpgUnlockPrestige = false
+      var moreUpgUnlock2 = false
+      var ptUpg1 = false
+      var ptUpg2 = false
+      var mults = 0
+
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      function logBase(base, number) {
+        return Math.log(number) / Math.log(base);
+      }
+
+     
+
+      function calcMmult() {
+        pmmult = (Math.sqrt((mults/100+1)))
+        smmult = (Math.sqrt((mults/300+1)))
+        rmmult = (Math.sqrt((mults/1500+1)))
+      }
+
+
+      function getMultValue() {
+        return (stars+1)/Math.sqrt((stars)/(50000/(logBase(5+(logDec), stars+1)+1))+1)
+      }
+
+      function getMultValue2() {
+        return ((stars+1)/Math.sqrt((stars)/(50000/(logBase(5+(logDec), stars+1)+1))+1))*pmult*pmmult
+      }
+
+      function cf(x) {
+        points += getMultValue2()*x
+        upd()
+      }
+
+      function st(am, cost) {
+        if (points >= cost) {
+          points -= cost
+          stars += am*smult*smmult
+        }
+        upd()
+      }
+
+      function rtPt(am, cost) {
+        if (prestiges >= cost) {
+          prestiges -= cost
+          pmult += am
+        }
+        upd()
+      }
+
+      function rtSt(am, cost) {
+        if (prestiges >= cost) {
+          prestiges -= cost
+          smult += am
+        }
+        upd()
+      }
+
+      function rtPs(am, cost) {
+        if (prestiges >= cost) {
+          prestiges -= cost
+          startPoints += am
+        }
+        upd()
+      }
+
+      function ptRt(am, cost) {
+        if (resets >= cost) {
+          resets -= cost
+         rmult += am
+        }
+        upd()
+      }
+
+      function ptPd(am, cost) {
+        if (resets >= cost) {
+          resets -= cost
+          logDec += am
+          if (logDec > 5) {
+          resets += cost*((logDec-5)/am)
+          logDec = 5
+         }
+        }
+        upd()
+      }
+
+      function ptIc(am, cost) {
+        if (resets >= cost) {
+          resets -= cost
+         autopoints += am
+         if (autopoints > 4) {
+          resets += cost*((autopoints-4)/am)
+          autopoints = 4
+         }
+        }
+        upd()
+      }
+
+      function rtUpg() {
+        if (prestiges >= 200 && moreUpgUnlockPrestige == false) {
+          prestiges -= 200
+          moreUpgUnlockPrestige = true
+          document.getElementById("pu1").style.display = "inline-block"
+          document.getElementById("pu2").style.display = "inline-block"
+          document.getElementById("pu3").style.display = "inline-block"
+          document.getElementById("rtUpg").style["background-color"] = "#333333"
+          document.getElementById("rtUpg").style["border-color"] = "#333333"
+        }
+        upd()
+      }
+
+      function rtUpgPlus() {
+        if (prestiges >= 5000 && moreUpgUnlock2 == false) {
+          prestiges -= 5000
+          moreUpgUnlock2 = true
+          document.getElementById("pu9").style.display = "inline-block"
+          document.getElementById("pu9").hidden = false
+          document.getElementById("pu8").style["background-color"] = "#333333"
+          document.getElementById("pu8").style["border-color"] = "#333333"
+        }
+        upd()
+      }
+
+      function ptUpg(y) {
+        if (y == 1) {
+          if (resets >= 15 && ptUpg1 == false) {
+            resets -= 15
+            ptUpg1 = true
+            document.getElementById("pu4").style.display = "inline-block"
+            document.getElementById("pu5").style.display = "inline-block"
+            document.getElementById("ptUpg1").style["background-color"] = "#333333"
+            document.getElementById("ptUpg1").style["border-color"] = "#333333"
+          }
+        }
+        if (y == 2) {
+           if (resets >= 30 && ptUpg2 == false) {
+            resets -= 30
+            ptUpg2 = true
+            document.getElementById("pu6").style.display = "inline-block"
+            document.getElementById("pu7").style.display = "inline-block"
+            document.getElementById("pu8").style.display = "inline-block"
+            document.getElementById("pu9").style.display = "inline-block"
+            document.getElementById("pu10").style.display = "inline-block"
+            document.getElementById("ptUpg2").style["background-color"] = "#333333"
+            document.getElementById("ptUpg2").style["border-color"] = "#333333"
+          }
+        }
+        upd()
+      }
+
+      function calcpt() {
+        if (points >= 1000) {
+          return Math.sqrt(points/1000)
+        } else {
+          return 0
+        }
+      }
+
+      function pt() {
+        if (points >= 1000) {
+          prestiges += calcpt()*rmult*rmmult
+          points = startPoints
+          stars = 0
+          
+
+        }
+        upd()
+      }
+
+      function calcrt() {
+        if (prestiges >= 150) {
+          return Math.sqrt(prestiges/100)
+        } else {
+          return 0
+        }
+      }
+      
+      function rt() {
+        if (prestiges >= 150) {
+          resets += calcrt()*emult
+          points = startPoints
+          stars = 0
+          prestiges = 0
+          pmult = 1
+          smult = 1
+          startPoints = 0
+          
+
+        }
+        upd()
+      }
+
+      function calcat() {
+        if (resets >= 30) {
+          return Math.sqrt(resets/30)
+        } else {
+          return 0
+        }
+      }
+
+      function at() {
+        if (ascends >= 150) {
+          ascends += calcat()*amult
+          points = 0
+          stars = 0
+          prestiges = 0
+          pmult = 1
+          smult = 1
+          startPoints = 0
+          resets = 0
+          logDec = 0
+          rmult = 1
+          autopoints = 0
+          
+
+        }
+        upd()
+    }
+
+      function calcmt() {
+        if (stars >= 50000) {
+          return Math.sqrt(stars/50000)
+        } else {
+          return 0
+        }
+      }
+
+      function mt() {
+        if (stars >= 50000) {
+          mults += calcmt()
+          stars = 0
+          
+
+        }
+        upd()
+      }
+
+      function upd() {
+        calcMmult()
+        document.getElementById("pointsButton").innerHTML = `+${Math.floor((getMultValue())*100)/100} Life Points`
+
+        document.getElementById("ptext").innerHTML = `+${Math.floor(calcpt()*100)/100} Prestiges`
+        document.getElementById("rtext").innerHTML = `+${Math.floor(calcrt()*100)/100} Resets`
+         document.getElementById("mtext").innerHTML = `+${Math.floor(calcmt()*100)/100} Mults`
+         document.getElementById("atext").innerHTML = `+${Math.floor(calcat()*100)/100} Ascends`
+        document.getElementById("points").innerHTML = `${Math.floor(points*100)/100} points`
+        document.getElementById("resets").innerHTML = `${Math.floor(resets*100)/100} resets`
+
+         document.getElementById("icps").innerHTML = `${Math.floor(autopoints*100)/100}/4`
+         document.getElementById("icps2").innerHTML = `${Math.floor(autopoints*100)/100}/4`
+
+         document.getElementById("pdps").innerHTML = `${Math.floor(logDec*100)/100}/5`
+         document.getElementById("pdps2").innerHTML = `${Math.floor(logDec*100)/100}/5`
+        if (pmult*pmmult > 1) {
+          document.getElementById("points").innerHTML += ` (x${Math.floor(pmult*pmmult*100)/100})`
+        }
+        if (emult*emmult > 1) {
+          document.getElementById("resets").innerHTML += ` (x${Math.floor(emult*emmult*100)/100})`
+        }
+        if (autopoints > 0) {
+          document.getElementById("points").innerHTML += ` (+${Math.floor(getMultValue2()*autopoints*100)/100}${"/s"})`
+        }
+        document.getElementById("stars").innerHTML = `${Math.floor(stars*100)/100} stars`
+        if (smult*smmult > 1) {
+          document.getElementById("stars").innerHTML += ` (x${Math.floor(smult*smmult*100)/100})`
+        }
+        document.getElementById("prestiges").innerHTML = `${Math.floor(prestiges*100)/100} prestiges`
+        if (rmult*rmmult > 1) {
+          document.getElementById("prestiges").innerHTML += ` (x${Math.floor(rmult*rmmult*100)/100})`
+        }
+        document.getElementById("ascends").innerHTML = `${Math.floor(ascends*100)/100} ascends`
+        if (amult*ammult > 1) {
+          document.getElementById("ascends").innerHTML += ` (x${Math.floor(amult*ammult*100)/100})`
+        }
+         document.getElementById("mults").innerHTML = `${Math.floor(mults*100)/100} mults`
+
+         document.getElementById("pmmult").innerHTML = `${Math.floor(pmmult*100)/100}`
+         document.getElementById("smmult").innerHTML = `${Math.floor(smmult*100)/100}`
+         document.getElementById("rmmult").innerHTML = `${Math.floor(rmmult*100)/100}`
+
+      }
+
+       function iupd() {
+        if (document.readyState == "loading") {
+
+          } else {
+            cf(autopoints)
+          }
+          setTimeout(iupd, 1000);
+      }
+
+      iupd()
+
+    </script>
+    <h3>Best Clicker Ever</h3>
+    <p id="points"></p>
+    <button id="pointsButton" onclick="cf(1)" style="background-color:#bbbbbb;border-color:#bbbbbb">+1 Life Point</button>
+    <p id="stars" style="color:#bb7700"></p>
+    <p style="display:inline-block">
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto" onclick="st(1, 50)">+1 Stars • 50 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto" onclick="st(3, 148)">+3 Stars • 148 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto" onclick="st(10, 495)">+10 Stars • 495 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto" onclick="st(50, 2485)">+50 Stars • 2485 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto" onclick="st(100, 4950)">+100 Stars • 4950 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto;display:none" onclick="st(300, 14900)">+300 Stars • 14900 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto;display:none" id="pu1" onclick="st(1000, 49800)">+1000 Stars • 49800 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto;display:none" id="pu2" onclick="st(5000, 249500)">+5000 Stars • 249500 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto;display:none" id="pu3" onclick="st(50000, 2499000)">+50000 Stars • 2499000 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto;display:none" id="pu4" onclick="st(300000, 14995000)">+300000 Stars • 14995000 Life Points</button>
+      <button style="background-color:#bb7700;border-color:#bb7700;width:auto;display:none" id="pu5" onclick="st(1000000, 49990000)">+1000000 Stars • 49990000 Life Points</button>
+    </p>
+
+    <p id="prestiges" style="color:#009999"></p>
+    <button id="prestige" onclick="pt()" style="background-color:#009999;border-color:#009999"><font id="ptext">+10 Prestiges</font> • 1000+ Life Points <font style="color:#004444">Resets Life Points and Stars</font></button>
+
+    <p style="display:inline-block">
+      <button onclick="rtPt(0.1, 1)" style="background-color:#449999;border-color:#449999;width:auto">+0.1 Point Multiplier • 1 Prestige</button>
+    <button onclick="rtSt(0.1, 1.5)" style="background-color:#44cc99;border-color:#44cc99;width:auto">+0.1 Star Multiplier • 1.5 Prestige</button>
+
+    <button onclick="rtPt(0.55, 5)" style="background-color:#449999;border-color:#449999;width:auto">+0.55 Point Multiplier • 5 Prestige</button>
+    <button onclick="rtSt(0.55, 7.5)" style="background-color:#44cc99;border-color:#44cc99;width:auto">+0.55 Star Multiplier • 7.5 Prestige</button>
+
+    <button onclick="rtPs(30, 10)" style="background-color:#66bbbb;border-color:#66bbbb;width:auto">+30 Starting Points • 10 Prestige</button>
+    <button onclick="rtPs(150, 50)" style="background-color:#66bbbb;border-color:#66bbbb;width:auto">+150 Starting Points • 50 Prestige</button>
+    <button onclick="rtPt(5.5, 50)" style="background-color:#449999;border-color:#449999;width:auto">+5.5 Point Multiplier • 50 Prestige</button>
+    <button onclick="rtSt(5.5, 75)" style="background-color:#44cc99;border-color:#44cc99;width:auto">+5.5 Star Multiplier • 75 Prestige</button>
+
+    <button onclick="rtPt(16, 150)" id="pu6" style="background-color:#449999;border-color:#449999;width:auto;display:none">+16 Point Multiplier • 150 Prestige</button>
+    <button onclick="rtSt(16, 225)" id="pu7" style="background-color:#44cc99;border-color:#44cc99;width:auto;display:none">+16 Star Multiplier • 225 Prestige</button>
+
+    <button onclick="rtPt(80, 750)" id="pu9" style="background-color:#449999;border-color:#449999;width:auto;display:none">+80 Point Multiplier • 750 Prestige</button>
+    <button onclick="rtSt(80, 1125)" id="pu10" style="background-color:#44cc99;border-color:#44cc99;width:auto;display:none">+80 Star Multiplier • 1125 Prestige</button>
+
+    <button onclick="rtUpg()" id="rtUpg" style="background-color:#44dddd;border-color:#44dddd;width:auto"><font style="color:#004444">[PERMANENT]</font> Unlock More Star Upgrades • 200 Prestige</button>
+    <button onclick="rtUpgPlus()" id="pu8" style="background-color:#44dddd;border-color:#44dddd;width:auto;display:none"><font style="color:#004444">[PERMANENT]</font> Unlock Mults • 5000 Prestige</button>
+    </p>
+
+    <wrapper id="pu9" style="display:none" hidden>
+      <p id="mults" style="color:#009900"></p>
+      <button id="mult" onclick="mt()" style="background-color:#009900;border-color:#009900"><font id="mtext">+10 Mults</font> • 50000+ Stars <font style="color:#004400">Sets Stars To 0</font></button>
+      <p style="color:#009900"><b>Gains:</b>
+      <br>
+      x<font id="pmmult">y</font> Points
+      <br>
+      x<font id="smmult">y</font> Stars
+      <br>
+      x<font id="rmmult">y</font> Prestiges
+      </p>
+    </wrapper>
+
+    <p id="resets" style="color:#990099"></p>
+    <button id="reset" onclick="rt()" style="background-color:#990099;border-color:#990099"><font id="rtext">+10 Prestiges</font> • 150+ Prestiges <font style="color:#440044">Resets Life Points, Stars, and Prestiges</font></button>
+
+    <p style="display:inline-block">
+      <button onclick="ptIc(0.1, 1)" style="background-color:#994499;border-color:#994499;width:auto">[<font id="icps">1/10</font>] +0.1 Idle Clicks Per Second • 1 Reset</button>
+      <button onclick="ptRt(0.2, 2)" style="background-color:#9944bb;border-color:#9944bb;width:auto">+0.2 Prestige Multiplier • 2 Reset</button>
+      <button onclick="ptPd(0.1, 4)" style="background-color:#bb66bb;border-color:#bb66bb;width:auto">[<font id="pdps">1/10</font>] -^0.1 Point Debuff • 4 Reset</button>
+      <button onclick="ptIc(1.1, 10)" style="background-color:#994499;border-color:#994499;width:auto">[<font id="icps2">1/10</font>] +1.1 Idle Clicks Per Second • 10 Reset</button>
+      <button onclick="ptRt(1.05, 10)" style="background-color:#9944bb;border-color:#9944bb;width:auto">+1.05 Prestige Multiplier • 10 Reset</button>
+      <button onclick="ptPd(0.6, 20)" style="background-color:#bb66bb;border-color:#bb66bb;width:auto">[<font id="pdps2">1/10</font>] -^0.6 Point Debuff • 20 Reset</button>
+      <button onclick="ptRt(3.1, 30)" style="background-color:#9944bb;border-color:#9944bb;width:auto">+3.1 Prestige Multiplier • 30 Reset</button>
+
+      <button onclick="ptUpg(1)" id="ptUpg1" style="background-color:#dd44dd;border-color:#dd44dd;width:auto"><font style="color:#440044">[PERMANENT]</font> Unlock More Star Upgrades • 15 Reset</button>
+    <button onclick="ptUpg(2)" id="ptUpg2" style="background-color:#dd44dd;border-color:#dd44dd;width:auto"><font style="color:#440044">[PERMANENT]</font> Unlock More Prestige Upgrades • 30 Reset</button>
+    </p>
+
+    <p id="ascends" style="color:#990000"></p>
+    <button id="ascend" onclick="at()" style="background-color:#990000;border-color:#990000"><font id="atext">+10 Prestiges</font> • 25+ Resets <font style="color:#440000">Resets Life Points, Stars, Prestiges, and Resets</font></button>
+
+    
+    
+  </body>
