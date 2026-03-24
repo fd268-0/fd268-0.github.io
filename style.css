@@ -22,7 +22,8 @@ body {
 }
 
 button {
-  color: #ffffff;
+  color: #000000;
+  background-color: #bbbbbb;
   font-family: "Noto Sans", sans-serif;
   border: none;
   outline: none;
