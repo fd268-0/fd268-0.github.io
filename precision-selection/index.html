@@ -323,15 +323,16 @@ input:focus {outline:none!important;}
           if (this.isBar) {
             ctx.globalCompositeOperation = "source-over"
             ctx.fillStyle = "#ffffff"
-            ctx.globalAlpha = 1-this.transparency
             ctx.fillRect(this.start-10, 0, 20, 100)
 
             ctx.fillStyle = this.color
             ctx.fillRect(this.start-5, 10, 10, 80)
           } else {
+          ctx.globalAlpha = Math.max(1-this.transparency, 0)
             ctx.globalCompositeOperation = "destination-over"
             if (this.end-this.start > 0) {
-              ctx.fillRect(this.start+(Math.random()*this.shake-(this.shake/2)), 10, (this.end-this.start)+(this.shake-(this.shake/2)), 80)
+              var sk = this.shake
+              ctx.fillRect(this.start+(Math.random()*sk-(sk/2)), 10, (this.end-this.start)+(sk-(sk/2)), 80)
             }
           }
         }
@@ -403,13 +404,16 @@ input:focus {outline:none!important;}
       possibleCards.push(new Card("Moving Pain", "Miniscule, and moving.", { tempsize: -0.4, tempmovement: 5, tempgain: 5, "safe Size": -0.03}))
       
       possibleCards.push(new Card("There They Go", "I can't catch up!", { tempsize: 0.1, tempmovement: 15, tempgain: 9, "tempsafe Gain": -9, speed: 0.5}))
-      possibleCards.push(new Card("Everything Now!", "I WANT EVERYTHING, NOW!", { tempsize: -0.18, tempgain: 3, tempspeed: 2, tempmovement: 2, size: -0.02}))
+      possibleCards.push(new Card("Everything Now!", "I WANT EVERYTHING, NOW!", { tempsize: -0.18, tempgain: 3, tempspeed: 2, tempmovement: 2, size: -0.02, temptransparency: 0.7, tempshake: 5}))
       possibleCards.push(new Card("Movin' Forever", "You'll regret this later.", { tempgain: 15, movement: 0.6, tempmovement: 0.9}))
       possibleCards.push(new Card("speed extended", "I hope you get good RNG!", { tempsize: -0.1, tempmovement: 20, tempspeed: 10, tempgain: 9, size: -0.02, "golden Size": 0.04}))
       possibleCards.push(new Card("unsafe", "this safe isn't safe no more", {"safe Gain": 2, "safe Movement": 2, size: -0.02}))
       possibleCards.push(new Card("The Wild West", "The second wave of gambling.", {tempmovement: 100, tempgain: 10, tempsize: 1.8, gain: 0.5, "good Size": 0.07}))
       possibleCards.push(new Card("Sacrifice Safe", "For the greater good.", { "safe Size": -0.3, gain: 0.7, "tempsafe Size": -0.7, tempgain: 3}))
-
+      possibleCards.push(new Card("I Can't See", "And now you can't see.", { temptransparency: 0.95 }))
+      possibleCards.push(new Card("The Borders", "are fuzzy.", { tempgain: 2, tempshake: 14, speed: 0.2 }))
+      possibleCards.push(new Card("Permashake", "Don't stack it too much...", { tempgain: 4, shake: 6 }))
+      possibleCards.push(new Card("Ghostly", "It'll go transparent, over time.", { transparency: 0.35, tempgain: 7, speed: -0.2 }))
 
       var selCard = null
       var data = new Object()
