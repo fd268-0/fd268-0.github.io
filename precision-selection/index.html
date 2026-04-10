@@ -305,6 +305,7 @@ input:focus {outline:none!important;}
         constructor(start, end, color, mult, isBar) {
           this.start = start
           this.end = end
+          this.shake = 0
           this.color = color
           this.mult = mult
           this.isBar = isBar
@@ -328,7 +329,7 @@ input:focus {outline:none!important;}
           } else {
             ctx.globalCompositeOperation = "destination-over"
             if (this.end-this.start > 0) {
-              ctx.fillRect(this.start, 10, this.end-this.start, 80)
+              ctx.fillRect(this.start+(Math.random()*this.shake-(this.shake/2), 10, (this.end-this.start)*this.shake-(this.shake/2), 80)
             }
           }
         }
@@ -558,6 +559,7 @@ input:focus {outline:none!important;}
           data.tempsize = 0
           data.tempscore = 0
           data.tempmovement = 0
+          data.tempshake = 0
         }
 
         window.addEventListener('resize', resizeCanvas);
@@ -1056,8 +1058,13 @@ input:focus {outline:none!important;}
               chng += j.startingAm * (data[`${Object.keys(bars)[i]} Size`])
             }
 
-            
+            var shake = data.shake+data.tempshake
 
+            if (data[`temp${Object.keys(bars)[i]} Shake`]) {
+              shake += (data[`temp${Object.keys(bars)[i]} Shake`])
+            }
+
+            j.shake = shake
             j.start = Math.random()*(1000-(chng))
             j.end = j.start+chng
 
@@ -1113,6 +1120,9 @@ input:focus {outline:none!important;}
               if (key == "speed") {
                 info = "How fast your bar goes."
               }
+              if (key == "shake") {
+                info = "How much bars shake."
+              }
               if (key == "movement") {
                 info = "How fast all bars go."
               }
@@ -1124,6 +1134,9 @@ input:focus {outline:none!important;}
               }
               if (key.indexOf(" Movement") != -1) {
                 info = `Adds to the speed the ${key.substring(0,key.indexOf(" Movement"))} bar goes.`
+              }
+              if (key.indexOf(" Shake") != -1) {
+                info = `Adds to the shake of the ${key.substring(0,key.indexOf(" Shake"))} bar.`
               }
                document.getElementById("stuff").innerHTML += ` <button ${y} class="tooltip"><font style="color:#009999">${z}</font>${Math.round(((val))*100)/100} ${key.substring(0,1).toUpperCase()}${key.substring(1)}<span class="tooltiptext">${info}</span></button>`
             }
