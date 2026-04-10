@@ -167,7 +167,6 @@ textarea {
 div {
    box-sizing: border-box;
   border-radius: 8px;
-  outline: none;
   opacity: 1;
   font-weight: normal;
   color: #ffffff;
@@ -306,6 +305,7 @@ input:focus {outline:none!important;}
           this.start = start
           this.end = end
           this.shake = 0
+          this.transparency = 0
           this.color = color
           this.mult = mult
           this.isBar = isBar
@@ -319,9 +319,11 @@ input:focus {outline:none!important;}
 
         draw() {
           ctx.fillStyle = this.color
+          ctx.globalAlpha = 1
           if (this.isBar) {
             ctx.globalCompositeOperation = "source-over"
             ctx.fillStyle = "#ffffff"
+            ctx.globalAlpha = 1-this.transparency
             ctx.fillRect(this.start-10, 0, 20, 100)
 
             ctx.fillStyle = this.color
@@ -528,6 +530,7 @@ input:focus {outline:none!important;}
         data.gain = 10
         data.totalscore = 0
         data.shake = 0
+        data.transparency = 0
         data.size = 1
         data.movement = 0
         resTemp()
@@ -559,6 +562,7 @@ input:focus {outline:none!important;}
           data.tempgain = 0
           data.tempsize = 0
           data.tempscore = 0
+          data.temptransparency = 0
           data.tempmovement = 0
           data.tempshake = 0
         }
@@ -1064,7 +1068,14 @@ input:focus {outline:none!important;}
             if (data[`temp${Object.keys(bars)[i]} Shake`]) {
               shake += (data[`temp${Object.keys(bars)[i]} Shake`])
             }
-
+            
+            var transparency = data.transparency+data.temptransparency
+            
+            if (data[`temp${Object.keys(bars)[i]} Transparency`]) {
+              transparency += (data[`temp${Object.keys(bars)[i]} Transparency`])
+            }
+            
+			j.transparency = transparency
             j.shake = shake
             j.start = Math.random()*(1000-(chng))
             j.end = j.start+chng
@@ -1127,6 +1138,9 @@ input:focus {outline:none!important;}
               if (key == "movement") {
                 info = "How fast all bars go."
               }
+              if (key == "transparency") {
+                info = "The transparency of all bars."
+              }
               if (key.indexOf(" Size") != -1) {
                 info = `How big the ${key.substring(0,key.indexOf(" Size"))} bar is.`
               }
@@ -1138,6 +1152,9 @@ input:focus {outline:none!important;}
               }
               if (key.indexOf(" Shake") != -1) {
                 info = `Adds to the shake of the ${key.substring(0,key.indexOf(" Shake"))} bar.`
+              }
+              if (key.indexOf(" Transparency") != -1) {
+                info = `Adds to the transparency of the ${key.substring(0,key.indexOf(" Shake"))} bar.`
               }
                document.getElementById("stuff").innerHTML += ` <button ${y} class="tooltip"><font style="color:#009999">${z}</font>${Math.round(((val))*100)/100} ${key.substring(0,1).toUpperCase()}${key.substring(1)}<span class="tooltiptext">${info}</span></button>`
             }
