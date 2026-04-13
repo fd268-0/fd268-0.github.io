@@ -419,8 +419,9 @@ input:focus {outline:none!important;}
       possibleCards.push(new Card("The Borders", "are fuzzy.", { tempgain: 3, tempshake: 20, speed: 0.2 }))
       possibleCards.push(new Card("Permashake", "Don't stack it too much...", { tempgain: 4, shake: 14 }))
       possibleCards.push(new Card("Ghostly", "It'll go transparent, over time.", { transparency: 0.3, tempgain: 7, speed: -0.2 }))
-		possibleCards.push(new Card("Schizo", "what am i seeing", { temptransparency: 0.5, tempgain: 10, tempmovement: 5, tempshake: 20 }))
-		  possibleCards.push(new Card("its joever", "Brother.", { temptransparency: 0.5, tempgain: 12, tempsize: -0.6, tempshake: 15, tempseed: -2 }))
+	  possibleCards.push(new Card("Schizo", "what am i seeing", { temptransparency: 0.5, tempgain: 10, tempmovement: 5, tempshake: 20 }))
+	  possibleCards.push(new Card("its joever", "Brother.", { temptransparency: 0.5, tempgain: 12, tempsize: -0.6, tempshake: 15, tempseed: -2 }))
+	  possibleCards.push(new Card("Golden Unlocked", "Will you ever be getting Gold again?", { gain: 2, "golden Shake": 25 }))
 
       var selCard = null
       var data = new Object()
@@ -1079,11 +1080,17 @@ input:focus {outline:none!important;}
             if (data[`temp${Object.keys(bars)[i]} Shake`]) {
               shake += (data[`temp${Object.keys(bars)[i]} Shake`])
             }
+			if (data[`${Object.keys(bars)[i]} Shake`]) {
+              shake += (data[`${Object.keys(bars)[i]} Shake`])
+            }
             
             var transparency = data.transparency+data.temptransparency
             
             if (data[`temp${Object.keys(bars)[i]} Transparency`]) {
               transparency += (data[`temp${Object.keys(bars)[i]} Transparency`])
+            }
+			if (data[`${Object.keys(bars)[i]} Transparency`]) {
+              transparency += (data[`${Object.keys(bars)[i]} Transparency`])
             }
             
 			j.transparency = transparency
