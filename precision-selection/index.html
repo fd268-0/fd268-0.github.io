@@ -321,10 +321,6 @@ input:focus {outline:none!important;}
           ctx.fillStyle = this.color
           ctx.globalAlpha = 1
 		  var sk = 0
-		  if (active) {
-			  ctx.globalAlpha = Math.max(1-this.transparency, 0)
-			  sk = this.shake
-		  }
           if (this.isBar) {
             ctx.globalCompositeOperation = "source-over"
             ctx.fillStyle = "#ffffff"
@@ -334,6 +330,10 @@ input:focus {outline:none!important;}
             ctx.fillRect(this.start-5, 10, 10, 80)
           } else {
             ctx.globalCompositeOperation = "destination-over"
+			if (active) {
+			  ctx.globalAlpha = Math.max(1-this.transparency, 0)
+			  sk = this.shake
+		  	}
             if (this.end-this.start > 0) {
               ctx.fillRect(this.start+(Math.random()*sk-(sk/2)), 10, (this.end-this.start)+(sk-(sk/2)), 80)
             }
