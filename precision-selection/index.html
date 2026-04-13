@@ -364,7 +364,7 @@ input:focus {outline:none!important;}
       nerfCards.push(new Card("<font style='color:#00ff00'>Undersized</font>", "Where's my size???", { size: -0.3 }))
       nerfCards.push(new Card("<font style='color:#ff00ff'>Mixednerf</font>", "You'll regret this.", { size: -0.1, gain: -1, movement: 1.5, speed: 2 }))
       nerfCards.push(new Card("<font style='color:#0000ff'>Scoregone</font>", "Bye bye, score...", { score: -150 }))
-	  nerfCards.push(new Card("<font style='color:#ff8800'>Supershake</font>", "Where is everything?", { shake: 35 }))
+	  nerfCards.push(new Card("<font style='color:#ff8800'>Supershake</font>", "Where is everything?", { shake: 39 }))
 
       var possibleSCs = new Array()
       possibleSCs.push(new Card("Long Gain", "Gain in the long run.", { gain: 2, score: -35 }))
@@ -378,6 +378,7 @@ input:focus {outline:none!important;}
       possibleSCs.push(new Card("Gain At A Price", "Gain, but a slight issue arrises.", { gain: 5, size: -0.13, speed: 3, score: -50 }))
       possibleSCs.push(new Card("Last Forever", "Make your safe the only one.", { "safe Size": 0.13, "safe Gain": 3, "golden Size": -0.15, "excellent Size": -0.17, "good Size": -0.2, score: -45 }))
       possibleSCs.push(new Card("Movement Cancellations", "Just in case you get one of 'em.", { movement: -1.5, score: -50 }))
+	  possibleSCs.push(new Card("Antishake", "Make sure you don't go negative...", { shake: -28, score: -35 }))
 
       var possibleCards = new Array()
       possibleCards.push(new Card("Speedy", "2*x the speed, and 2*x the gain.", { tempspeed: 8, tempgain: 8 }))
@@ -416,7 +417,7 @@ input:focus {outline:none!important;}
       possibleCards.push(new Card("Sacrifice Safe", "For the greater good.", { "safe Size": -0.3, gain: 0.7, "tempsafe Size": -0.7, tempgain: 3}))
       possibleCards.push(new Card("I Can't See", "And now you can't see.", { tempgain: 4, temptransparency: 0.87 }))
       possibleCards.push(new Card("The Borders", "are fuzzy.", { tempgain: 3, tempshake: 20, speed: 0.2 }))
-      possibleCards.push(new Card("Permashake", "Don't stack it too much...", { tempgain: 4, shake: 10 }))
+      possibleCards.push(new Card("Permashake", "Don't stack it too much...", { tempgain: 4, shake: 14 }))
       possibleCards.push(new Card("Ghostly", "It'll go transparent, over time.", { transparency: 0.3, tempgain: 7, speed: -0.2 }))
 		possibleCards.push(new Card("Schizo", "what am i seeing", { temptransparency: 0.5, tempgain: 10, tempmovement: 5, tempshake: 20 }))
 		  possibleCards.push(new Card("its joever", "Brother.", { temptransparency: 0.5, tempgain: 12, tempsize: -0.6, tempshake: 15, tempseed: -2 }))
