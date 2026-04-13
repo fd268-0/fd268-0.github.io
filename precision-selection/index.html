@@ -320,6 +320,11 @@ input:focus {outline:none!important;}
         draw() {
           ctx.fillStyle = this.color
           ctx.globalAlpha = 1
+		  var sk = 0
+		  if (active) {
+			  ctx.globalAlpha = Math.max(1-this.transparency, 0)
+			  sk = this.shake
+		  }
           if (this.isBar) {
             ctx.globalCompositeOperation = "source-over"
             ctx.fillStyle = "#ffffff"
@@ -328,10 +333,8 @@ input:focus {outline:none!important;}
             ctx.fillStyle = this.color
             ctx.fillRect(this.start-5, 10, 10, 80)
           } else {
-          ctx.globalAlpha = Math.max(1-this.transparency, 0)
             ctx.globalCompositeOperation = "destination-over"
             if (this.end-this.start > 0) {
-              var sk = this.shake
               ctx.fillRect(this.start+(Math.random()*sk-(sk/2)), 10, (this.end-this.start)+(sk-(sk/2)), 80)
             }
           }
@@ -416,7 +419,6 @@ input:focus {outline:none!important;}
       possibleCards.push(new Card("Ghostly", "It'll go transparent, over time.", { transparency: 0.3, tempgain: 7, speed: -0.2 }))
 		possibleCards.push(new Card("Schizo", "what am i seeing", { temptransparency: 0.5, tempgain: 10, tempmovement: 5, tempshake: 20 }))
 		  possibleCards.push(new Card("its joever", "Brother.", { temptransparency: 0.5, tempgain: 12, tempsize: -0.6, tempshake: 15, tempseed: -2 }))
-		  possibleCards.push(new Card("I urge you to think carefully about your actions.", "Brother. That's blackmail if I've ever seen it.", { tempspeed: -10 }))
 
       var selCard = null
       var data = new Object()
