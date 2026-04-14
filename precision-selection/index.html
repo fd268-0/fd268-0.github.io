@@ -290,7 +290,12 @@ input:focus {outline:none!important;}
 
     <script>
 
-
+	const myAudio = new Audio('82c17135561b628775a3b87134b7ab86.mp3');
+	
+	myAudio.addEventListener('canplaythrough', () => {
+	  myAudio.play()
+	    .catch(error => console.error(error));
+	}, { once: true });
 
       var upda = false
 
