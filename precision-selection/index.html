@@ -303,6 +303,13 @@ input:focus {outline:none!important;}
 
 		  const audio = new Audio('acbf8ffd36137db67895337a01281292.mp3')
 
+		  function playSoundVar(name, vpitch) {
+			   const sv = new Audio(name)
+			  sv.volume = 0.4
+			  sv.playbackRate = vpitch + Math.random()*0.4-0.2
+			  sv.play()
+		  }
+
 		var permadata = new Object()
 		permadata.points = 0
 		permadata.round = 0
@@ -691,6 +698,7 @@ input:focus {outline:none!important;}
          document.getElementById("scoreC").addEventListener("mousedown", (event) => {
           if (mEn) {
             upd()
+			  playSoundVar("6af1-sel.mp3",1.4)
             tEn = false
             mEn = true
           }
@@ -769,6 +777,7 @@ input:focus {outline:none!important;}
         function load(x) {
           if (cAc) {
             selCard = x
+			  playSoundVar("6af1-sel.mp3",1)
             appTemp()
 
             resStuff()
@@ -838,13 +847,16 @@ input:focus {outline:none!important;}
 
         document.getElementById("nBuy").addEventListener("mousedown", (event) => {
           cancelBuy()
+			playSoundVar("6af1-sel.mp3",0.6)
         })
         document.getElementById("cBuy").addEventListener("mousedown", (event) => {
           doBuy()
+			playSoundVar("6af1-sel.mp3",1.4)
         })
 
         function cbuy(n) {
           if (scAc && shopCards[n].bought != true && sCB.indexOf(`[${n}]`) == -1) {
+			  playSoundVar("6af1-sel.mp3",1)
             scAc = false
             bC = n
             document.getElementById("confirmBuy").style["animation-name"] = "show"
