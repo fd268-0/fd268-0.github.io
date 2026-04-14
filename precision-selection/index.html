@@ -297,6 +297,8 @@ input:focus {outline:none!important;}
         // draw
         var jover = false
         var active = false
+
+		  var audioPlaying = false
         var rs = 0
 
 		var permadata = new Object()
@@ -1085,6 +1087,13 @@ input:focus {outline:none!important;}
         }
 
         async function start() {
+			if (! audioPlaying) {
+				const audio = new Audio('82c17135561b628775a3b87134b7ab86.mp3')
+				audio.loop = true
+				audio.play()
+				audioPlaying = true
+			}
+			
           active = true
           bars.bar.start = 0
           for (var i = 0; i < Object.keys(bars).length; i++) {
@@ -1330,9 +1339,6 @@ input:focus {outline:none!important;}
       </div>
 
       <wrapper id="confirmBuy" style="display:none"><p style="display: flex;position:fixed;justify-content: center;align-items: center;text-align: center; width: 100vw; height: 100vh; background-color:#00000055; top: -20px; animation-name: show; animation-duration: 0.5s"></p><p style="text-align: center;position:fixed; background-color: #111111; width: 100%; border-radius: 0px;  top: 50%; left: 0%; animation-name: show; animation-duration: 0.5s"><font id="btext"></font><br><button id="cBuy" style="font-size: 20px">Buy</button> <button id="nBuy" style="font-size: 20px">Cancel</button></p></wrapper>
-		<audio id="bgaudio">
-  <source src="82c17135561b628775a3b87134b7ab86.mp3" type="audio/mpeg">
-</audio>
 
 
   </body>
