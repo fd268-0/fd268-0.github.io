@@ -269,6 +269,17 @@ button {
   font-family: "Space Grotesk", sans-serif;
 }
 
+#points {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+#pshow {
+width:97%;
+top:-8%;
+position: absolute;
+text-align: right;
+}
+
 button {border:0;outline:0;}
 input {border:0;outline:0;}
 
@@ -291,7 +302,7 @@ input:focus {outline:none!important;}
         var rs = 0
 
 		var permadata = new Object()
-		permadata.score = 0
+		permadata.points = 0
 		permadata.round = 0
 		permadata.data = new Object()
 		permadata.upgrades = new Object()
@@ -537,8 +548,9 @@ input:focus {outline:none!important;}
         reloadShopCards()
         if (jover) {
           document.getElementById("i2").style["animation-name"] = "ie"
-			permadata.score += data.score
+			permadata.points += Math.max(0,data.score-50)
 			permadata.round += data.round
+            showPts()
         }
         jover = false
         active = false
@@ -568,6 +580,14 @@ input:focus {outline:none!important;}
               document.getElementById("shope").style.display = "none"
               
             }
+      }
+      
+      function showPts() {
+      	if (permadata.points > 0) {
+        	document.getElementById("pointee").style.display = ""
+            document.getElementById("pointee").style["animation-name"] = "show"
+            document.getElementById("pointee").style["animation-duration"] = "1s"
+       	}
       }
 
       function resTemp() {
@@ -1188,6 +1208,7 @@ input:focus {outline:none!important;}
           }
         }
 
+		var ptdt = 0
         async function frame(dt) {
           var fps = 1/(dt/1000)
           var wT = 60/fps
@@ -1196,10 +1217,13 @@ input:focus {outline:none!important;}
           }
           bars.bar.color = bars.bar.colOn()[0].color
           rs = lerp(rs, data.score+data.tempscore, 0.1)
+          ptdt = lerp(ptdt, permadata.points, 0.1)
           var m = "".padEnd(5-Math.round(rs).toString().length, "0")
           var m2 = "".padEnd(3-Math.round(data.round).toString().length, "0")
+          var m3 = "".padEnd(6-Math.round(data.round).toString().length, "0")
           document.getElementById("score").innerHTML = `<font style="color:#666666">${m}</font>${Math.round(rs)}`
           document.getElementById("round").innerHTML = `<font style="color:#666666">${m2}</font>${Math.round(data.round)}`
+          document.getElementById("points").innerHTML = `<font style="color:#666666">${m3}</font>${Math.round(ptdt)}`
         
 
           if (active) {
@@ -1285,7 +1309,7 @@ input:focus {outline:none!important;}
       </h3>
 
       <p id="shope" style="background-color: #111111;border-color: #aaaaaa; border-width: 2px; border-style: solid; display: none;">
-        <font id="scoreE"><b><i>THE SHOP</b><i></font> <i>Boost your run!</i>
+        <font id="scoreE"><b><i>THE SHOP</b></i></font> <i>Boost your run!</i>
         <font id="shop" style="align-items: center;    display: block; margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;text-align: center;">
           <i>BOOSTS</i><br>
           <button id="s1" style="transform: scaleX(1); background-color:#00000000; border-color: #666666; border-width: 2px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff00">t<br>t<br>t</button>
@@ -1297,9 +1321,15 @@ input:focus {outline:none!important;}
         <font id="leftM" style="text-align:center;color:#aaaaaa">Restocks in <font id="leftR"></font> round<font id="leftS"></font></font>
       </p>
       
-      <p id="shope" style="background-color: #000011;border-color: #0000aa; border-width: 2px; border-style: solid; display: none;">
-        <font id="scoreE" style="color: #aaaaff"><b><i>THE UPGRADER</i></b></font> <i style="color: #aaaadd">Boost your game!</i><br>
-      </p>
+      <div id="pointee" style="position:relative;background-color: #000011;border-color: #0000aa; border-width: 2px; border-style: solid;padding:4px;display:none;">
+      <p id="pshow">POINTS <b></b><font id="points"></font></p>
+        <font id="scoreE" style="color: #aaaaff"><b><i>THE UPGRADER</i></b></font> <i style="color: #aaaadd">Boost your game!</i>
+        <font id="upg" style="align-items: center;    display: block; margin-block-start: 1em;margin-block-end: 1em;margin-inline-start: 0px;margin-inline-end: 0px;text-align: center;">
+        <button id="u1" style="transform: scaleX(1); background-color:#000066; border-color: #666666; border-width: 0px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff;display:none;">t<br>t<br>t</button>
+        <button id="u2" style="transform: scaleX(1); background-color:#000066; border-color: #666666; border-width: 0px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff;display:none;">t<br>t<br>t</button>
+        <button id="u3" style="transform: scaleX(1); background-color:#000066; border-color: #666666; border-width: 0px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff;display:none;">t<br>t<br>t</button>
+       	</font>
+      </div>
 
       <wrapper id="confirmBuy" style="display:none"><p style="display: flex;position:fixed;justify-content: center;align-items: center;text-align: center; width: 100vw; height: 100vh; background-color:#00000055; top: -20px; animation-name: show; animation-duration: 0.5s"></p><p style="text-align: center;position:fixed; background-color: #111111; width: 100%; border-radius: 0px;  top: 50%; left: 0%; animation-name: show; animation-duration: 0.5s"><font id="btext"></font><br><button id="cBuy" style="font-size: 20px">Buy</button> <button id="nBuy" style="font-size: 20px">Cancel</button></p></wrapper>
 
