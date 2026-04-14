@@ -24,6 +24,7 @@
 .tooltip {
   position: relative;
   display: inline-block;
+  background-color: #333333;
   border-bottom: 1px dotted black;
   cursor: pointer;
 }
@@ -51,7 +52,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: #333333 transparent transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
@@ -1294,6 +1295,10 @@ input:focus {outline:none!important;}
           <button id="s4" style="transform: scaleX(1); background-color:#00000000; border-color: #666666; border-width: 2px; border-style: dashed; transform-origin: center; width: 30%; color: #ffffff00">Redraw Round Cards <font style="opacity:0.7"><b>25</b> Score</font></button>
         </font>
         <font id="leftM" style="text-align:center;color:#aaaaaa">Restocks in <font id="leftR"></font> round<font id="leftS"></font></font>
+      </p>
+      
+      <p id="shope" style="background-color: #000011;border-color: #0000aa; border-width: 2px; border-style: solid; display: none;">
+        <font id="scoreE" style="color: #aaaaff"><b><i>THE UPGRADER</i></b></font> <i style="color: #aaaadd">Boost your game!</i><br>
       </p>
 
       <wrapper id="confirmBuy" style="display:none"><p style="display: flex;position:fixed;justify-content: center;align-items: center;text-align: center; width: 100vw; height: 100vh; background-color:#00000055; top: -20px; animation-name: show; animation-duration: 0.5s"></p><p style="text-align: center;position:fixed; background-color: #111111; width: 100%; border-radius: 0px;  top: 50%; left: 0%; animation-name: show; animation-duration: 0.5s"><font id="btext"></font><br><button id="cBuy" style="font-size: 20px">Buy</button> <button id="nBuy" style="font-size: 20px">Cancel</button></p></wrapper>
