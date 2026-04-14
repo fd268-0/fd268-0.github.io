@@ -305,7 +305,7 @@ input:focus {outline:none!important;}
 
 		  function playSoundVar(name, vpitch) {
 			   const sv = new Audio(name)
-			  sv.volume = 0.4
+			  sv.volume = 0.2
 			  sv.playbackRate = vpitch + Math.random()*0.4-0.2
 			  sv.play()
 		  }
@@ -698,7 +698,6 @@ input:focus {outline:none!important;}
          document.getElementById("scoreC").addEventListener("mousedown", (event) => {
           if (mEn) {
             upd()
-			  playSoundVar("6af1-sel.mp3",1.4)
             tEn = false
             mEn = true
           }
@@ -974,6 +973,7 @@ input:focus {outline:none!important;}
 
         function upd() {
           upda = false
+			playSoundVar("6af1-sel.mp3",1.4)
           if (active) {
             active = false
             selCard = null
