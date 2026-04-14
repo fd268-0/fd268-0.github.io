@@ -289,6 +289,12 @@ input:focus {outline:none!important;}
         var active = false
         var rs = 0
 
+		var permadata = new Object()
+		permadata.score = 0
+		permadata.round = 0
+		permadata.data = new Object()
+		permadata.upgrades = new Object()
+
         var canvas = document.getElementById('gameCanvas')
         var ctx = canvas.getContext('2d')
 
@@ -530,6 +536,8 @@ input:focus {outline:none!important;}
         reloadShopCards()
         if (jover) {
           document.getElementById("i2").style["animation-name"] = "ie"
+			permadata.score += data.score
+			permadata.round += data.round
         }
         jover = false
         active = false
