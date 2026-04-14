@@ -301,6 +301,8 @@ input:focus {outline:none!important;}
 		  var audioPlaying = false
         var rs = 0
 
+		  const audio = new Audio('82c17135561b628775a3b87134b7ab86.mp3')
+
 		var permadata = new Object()
 		permadata.points = 0
 		permadata.round = 0
@@ -1088,7 +1090,6 @@ input:focus {outline:none!important;}
 
         async function start() {
 			if (! audioPlaying) {
-				const audio = new Audio('82c17135561b628775a3b87134b7ab86.mp3')
 				audio.loop = true
 				audio.play()
 				audioPlaying = true
@@ -1222,6 +1223,16 @@ input:focus {outline:none!important;}
           if (wT > 10) {
             wT = 10
           }
+
+		  var wantedSound = 0.3
+			if (data.round == 0) {
+				 wantedSound = 0
+			}
+		  if (active) {
+			  wantedSound = 0.2
+		  }
+		  var lerpedSound = lerp(sound.volume, wantedSound, 0.05)
+		  sound.volume = lerpedSound
           bars.bar.color = bars.bar.colOn()[0].color
           rs = lerp(rs, data.score+data.tempscore, 0.1)
           ptdt = lerp(ptdt, permadata.points, 0.1)
