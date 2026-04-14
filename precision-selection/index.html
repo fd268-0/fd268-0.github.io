@@ -1231,8 +1231,8 @@ input:focus {outline:none!important;}
 		  if (active) {
 			  wantedSound = 0.2
 		  }
-		  var lerpedSound = lerp(sound.volume, wantedSound, 0.05)
-		  sound.volume = lerpedSound
+		  var lerpedSound = lerp(audio.volume, wantedSound, 0.05)
+		  audio.volume = lerpedSound
           bars.bar.color = bars.bar.colOn()[0].color
           rs = lerp(rs, data.score+data.tempscore, 0.1)
           ptdt = lerp(ptdt, permadata.points, 0.1)
