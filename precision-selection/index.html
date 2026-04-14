@@ -1224,14 +1224,14 @@ input:focus {outline:none!important;}
             wT = 10
           }
 
-		  var wantedSound = 0.2
+		  var wantedSound = 0.4
 			if (data.round == 0) {
-				 wantedSound = 0.05
+				 wantedSound = 0.15
 			}
 		  if (active) {
-			  wantedSound = 0.1
+			  wantedSound = 0.25
 		  }
-		  var lerpedSound = lerp(audio.volume, wantedSound, 0.05)
+		  var lerpedSound = lerp(audio.volume, wantedSound, 0.03)
 		  audio.volume = lerpedSound
           bars.bar.color = bars.bar.colOn()[0].color
           rs = lerp(rs, data.score+data.tempscore, 0.1)
