@@ -306,7 +306,13 @@ input:focus {outline:none!important;}
 		  function playSoundVar(name, vpitch) {
 			   const sv = new Audio(name)
 			  sv.volume = 0.2
-			  sv.playbackRate = vpitch + Math.random()*0.4-0.2
+			  sv.playbackRate = vpitch + Math.random()*0.6-0.3
+			  sv.play()
+		  }
+
+		   function playSound(name, vol) {
+			   const sv = new Audio(name)
+			  sv.volume = vol
 			  sv.play()
 		  }
 
@@ -927,6 +933,7 @@ input:focus {outline:none!important;}
             cards.push(nerfCards[Math.floor(Math.random() * nerfCards.length)])
             cards.push(nerfCards[Math.floor(Math.random() * nerfCards.length)])
             cards.push(nerfCards[Math.floor(Math.random() * nerfCards.length)])
+			playSound("xf51-sound.mp3", 0.6)
           } else {
             cards.push(possibleCards[Math.floor(Math.random() * possibleCards.length)])
             cards.push(possibleCards[Math.floor(Math.random() * possibleCards.length)])
