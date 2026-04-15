@@ -989,7 +989,7 @@
 		var ptdt = 0
         async function frame(dt) {
 			startAudio()
-			 permadata.settings.volume = document.getElementById("volume")
+			 permadata.settings.volume = document.getElementById("volume").value
 			var volume = Math.floor(permadata.settings.volume)/50
           var fps = 1/(dt/1000)
           var wT = 60/fps
