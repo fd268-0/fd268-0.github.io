@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+#pre-sec-box {
+  margin-top: 24px;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.5;
+  text-wrap: wrap;
+  padding: 8px;
+  border-radius: 8px;
+  opacity: 1;
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 20px;
+  overflow-wrap: break-word;
+ background-color: #111111;
+  border-color: #aaaaaa;
+  border-width: 2px; 
+  border-style: solid;
+  
+}
+
 #topBar {
   width: 100%;
   padding: 4px;
@@ -34,27 +53,6 @@ button {
   padding-left: 6px;
 }
 
-#pre-sec-box {
-  margin-top: 24px;
-  font-family: "Space Grotesk", sans-serif;
-  line-height: 1.5;
-  text-wrap: wrap;
-  padding-left: 4px;
-   padding-top: 2px;
-   padding-bottom: 2px;
-   padding-right: 8px;
-  border-radius: 8px;
-  opacity: 1;
-  font-weight: normal;
-  color: #ffffff;
-  font-size: 20px;
-  overflow-wrap: break-word;
- background-color: #111111;
-  border-color: #aaaaaa;
-  border-width: 2px; 
-  border-style: solid;
-  
-}
 
 
 a:hover {
