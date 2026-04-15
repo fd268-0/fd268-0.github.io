@@ -34,6 +34,10 @@
 			  sv.play()
 		  }
 
+		  function isPlaying(media) {
+    		return !!(media.currentTime > 0 && !media.paused && !media.ended && media.readyState > 2);
+		}
+
 		var permadata = new Object()
 		permadata.points = 0
 		permadata.round = 0
@@ -826,12 +830,16 @@
           }
         }
 
-        async function start() {
-			if (! audioPlaying) {
+		  function startAudio() {
+			  if (! isPlaying(audio)) {
 				audio.loop = true
 				audio.play()
 				audioPlaying = true
+				
 			}
+		  }
+
+        async function start() {
 			
           active = true
           bars.bar.start = 0
@@ -956,6 +964,7 @@
 
 		var ptdt = 0
         async function frame(dt) {
+			startAudio()
           var fps = 1/(dt/1000)
           var wT = 60/fps
           if (wT > 10) {
@@ -1089,6 +1098,7 @@
 
       <wrapper id="confirmBuy" style="display:none"><p style="display: flex;position:fixed;justify-content: center;align-items: center;text-align: center; width: 100vw; height: 100vh; background-color:#00000055; top: -20px; animation-name: show; animation-duration: 0.5s"></p><p style="text-align: center;position:fixed; background-color: #111111; width: 100%; border-radius: 0px;  top: 50%; left: 0%; animation-name: show; animation-duration: 0.5s"><font id="btext"></font><br><button id="cBuy" style="font-size: 20px">Buy</button> <button id="nBuy" style="font-size: 20px">Cancel</button></p></wrapper>
 
+	  <div style="position:fixed;bottom:8px;left:8px;width:100%;opacity:0.6"><button onclick="window.location.href = '/'">Go Home</button></div>
 
   </body>
 </html>
