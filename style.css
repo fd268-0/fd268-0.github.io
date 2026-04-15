@@ -39,7 +39,6 @@ button {
   margin-top: 24px;
   font-family: "Space Grotesk", sans-serif;
   line-height: 1.5;
-  background-color: #000000;
   text-wrap: wrap;
   padding-left: 4px;
    padding-top: 2px;
@@ -51,6 +50,10 @@ button {
   color: #ffffff;
   font-size: 16px;
   overflow-wrap: break-word;
+ background-color: #000011;
+  border-color: #0000aa;
+  border-width: 2px; 
+  border-style: solid;padding:4px;
   
 }
 
