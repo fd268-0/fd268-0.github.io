@@ -514,6 +514,7 @@
         }
 
         function load(x) {
+			console.log(cAc)
           if (cAc) {
             selCard = x
 			  playSoundVar("6af1-sel.mp3",1)
@@ -1076,7 +1077,7 @@
         calc()
 
 
-		  async function load() {
+		  async function loadst() {
 			  // load perma
 			  if (localStorage.getItem('userProfile')) {
 				  permadata = JSON.parse(localStorage.getItem('userProfile'));
@@ -1084,7 +1085,7 @@
 			  loadSettingsFromPerma()
 		  }
 
-		  load()
+		  loadst()
 
 
 
