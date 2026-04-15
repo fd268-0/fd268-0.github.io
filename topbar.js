@@ -12,7 +12,7 @@ window.addEventListener("load", function() {
 
    document.body.innerHTML += `<button style="display:none;position:fixed;width:50%;max-width:300px;height:100%;top:0px;right:0px;border:none;outline:none;background-color:#00000000; transition: background-color 0.3s ease;" id="bg1"></button>
    <div style="padding:12px;position:fixed;width:50%;height:100%;max-width:300px;top:0px;right:0px;border:none;outline:none;background-color:#000000;overflow-y:auto; translate: 100%; transition: translate 0.3s ease;" id="bg2">
-    <button id="cancelGo" style="border:none;outline:none;background-color:#444444;border-radius:8px;color:#ffaaaa;padding: 0px;">Exit</button>
+    <button id="cancelGo" style="border:none;outline:none;background-color:#444444;border-radius:8px;color:#ffaaaa;padding: 0px;padding-left:4px;padding-right:4px">Exit</button>
     <p id="searchResults"></p>
    </div>
    <input id="search" placeholder="Search" type="string" style="border:none;outline:none;border-radius:8px;height:20px;background-color:#444444;color:#ffffff;position:absolute;right:46px;top:12px;font-family:'Noto Sans';max-width:50%;padding-left:4px;"><button id="go" style="border:none;outline:none;border-radius:8px;height:20px;width:30px;background-color:#444444;color:#ffffff;position:absolute;right:12px;top:12px;font-family:'Noto Sans';max-width:50%;padding: 0px;">Go</button>`
