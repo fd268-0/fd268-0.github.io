@@ -44,6 +44,9 @@
 		permadata.data = new Object()
 		permadata.upgrades = new Object()
 
+		  permadata.settings = new Object()
+		  permadata.settings.volume = 50
+
         var canvas = document.getElementById('gameCanvas')
         var ctx = canvas.getContext('2d')
 
@@ -430,6 +433,13 @@
             tEn = false
             mEn = true
           }
+        })
+
+		  document.getElementById("scoreC").addEventListener("openoptions", (event) => {
+          if (document.getElementById("settings").style.display == "none") {
+            document.getElementById("settings").style.display = ""
+          } else {
+			document.getElementById("settings").style.display = "none"
         })
 
         document.getElementById("scoreC").addEventListener("touchstart", (event) => { 
@@ -963,9 +973,22 @@
           }
         }
 
+		  function loadSettingsFromPerma() {
+			  for (var i = 0; i < Object.keys(permadata.settings).length; i++) {
+				  var name = Object.keys(permadata.settings)[i]
+              	  var item = permadata.settings[name]
+				  if (document.getElementById(name)) {
+					  document.getElementById(name).value = item
+				  }
+			  }
+		  }
+
+		  
+
 		var ptdt = 0
         async function frame(dt) {
 			startAudio()
+			 permadata.settings.volume = document.getElementById("volume")
           var fps = 1/(dt/1000)
           var wT = 60/fps
           if (wT > 10) {
@@ -1028,17 +1051,37 @@
           }
         }
 
+		  async function save() {
+			  localStorage.setItem('userProfile', JSON.stringify(permadata));
+		  }
+
         var lastUpdate = Date.now();
+		  var lastSave = Date.now();
 
         async function calc() {
           var now = Date.now();
           var dt = now - lastUpdate;
+			if (now - lastSave > 1000) {
+				lastSave = now;
+				save()
+			}
           lastUpdate = now;
           frame(dt)
           setTimeout(calc, 1);
         }
 
         calc()
+
+
+		  async function load() {
+			  // load perma
+			  if (localStorage.getItem('userProfile')) {
+				  permadata = JSON.parse(localStorage.getItem('userProfile'));
+			  }
+			  loadSettingsFromPerma()
+		  }
+
+		  load()
 
 
 
@@ -1099,7 +1142,11 @@
 
       <wrapper id="confirmBuy" style="display:none"><p style="display: flex;position:fixed;justify-content: center;align-items: center;text-align: center; width: 100vw; height: 100vh; background-color:#00000055; top: -20px; animation-name: show; animation-duration: 0.5s"></p><p style="text-align: center;position:fixed; background-color: #111111; width: 100%; border-radius: 0px;  top: 50%; left: 0%; animation-name: show; animation-duration: 0.5s"><font id="btext"></font><br><button id="cBuy" style="font-size: 20px">Buy</button> <button id="nBuy" style="font-size: 20px">Cancel</button></p></wrapper>
 
-	  <div style="position:fixed;bottom:8px;left:8px;width:100%;opacity:0.6"><button onclick="window.location.href = '/'">Go Home</button></div>
+	  <div style="position:fixed;bottom:38px;left:8px;width:50%;height:50%;background-color:#333333;padding:8px;display:none" id="settings"><b>Options Menu</b>
+<div style="margin-top:8px;padding:8px;background-color:#222222">Music Volume<input type="range" min="0" max="100" value="50" class="slider" id="volume" style="width:100%"></div>
+</div>
+	  
+	  <div style="position:fixed;bottom:8px;left:8px;width:100%"><button onclick="window.location.href = '/'" style="opacity:0.6">Go Home</button> <button id="openoptions">Options</button></div>
 
   </body>
 </html>
