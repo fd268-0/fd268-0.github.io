@@ -1003,7 +1003,7 @@
 		  if (active) {
 			  wantedSound = 0.25
 		  }
-			wantedSound *=  permadata.settings.volume/50
+			wantedSound *=  Math.floor(permadata.settings.volume)/50
 		  var lerpedSound = lerp(audio.volume, wantedSound, 0.03)
 		  audio.volume = lerpedSound
           bars.bar.color = bars.bar.colOn()[0].color
