@@ -990,6 +990,7 @@
         async function frame(dt) {
 			startAudio()
 			 permadata.settings.volume = document.getElementById("volume")
+			var volume = Math.floor(permadata.settings.volume)/50
           var fps = 1/(dt/1000)
           var wT = 60/fps
           if (wT > 10) {
@@ -1003,7 +1004,7 @@
 		  if (active) {
 			  wantedSound = 0.25
 		  }
-			wantedSound *=  Math.floor(permadata.settings.volume)/50
+			wantedSound = wantedSound * volume
 		  var lerpedSound = lerp(audio.volume, wantedSound, 0.03)
 		  audio.volume = lerpedSound
           bars.bar.color = bars.bar.colOn()[0].color
