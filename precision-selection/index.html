@@ -1257,7 +1257,7 @@ input:focus {outline:none!important;}
           ptdt = lerp(ptdt, permadata.points, 0.1)
           var m = "".padEnd(5-Math.round(rs).toString().length, "0")
           var m2 = "".padEnd(3-Math.round(data.round).toString().length, "0")
-          var m3 = "".padEnd(6-Math.round(data.round).toString().length, "0")
+          var m3 = "".padEnd(6-Math.round(ptdt).toString().length, "0")
           document.getElementById("score").innerHTML = `<font style="color:#666666">${m}</font>${Math.round(rs)}`
           document.getElementById("round").innerHTML = `<font style="color:#666666">${m2}</font>${Math.round(data.round)}`
           document.getElementById("points").innerHTML = `<font style="color:#666666">${m3}</font>${Math.round(ptdt)}`
