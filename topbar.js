@@ -15,7 +15,7 @@ window.addEventListener("load", function() {
     <button id="cancelGo" style="border:none;outline:none;background-color:#444444;border-radius:8px;color:#ffaaaa;padding: 0px;padding-left:4px;padding-right:4px">Exit</button>
     <p id="searchResults"></p>
    </div>
-   <input id="search" placeholder="Search" type="string" style="border:none;outline:none;border-radius:8px;height:20px;background-color:#444444;color:#ffffff;position:absolute;right:46px;top:12px;font-family:'Noto Sans';max-width:50%;padding-left:4px;"><button id="go" style="border:none;outline:none;border-radius:8px;height:20px;width:30px;background-color:#444444;color:#ffffff;position:absolute;right:12px;top:12px;font-family:'Noto Sans';max-width:50%;padding: 0px;">Go</button>`
+   <input id="search" placeholder="Search" type="string" style="border:none;outline:none;border-radius:8px;height:26px;background-color:#444444;color:#ffffff;position:absolute;right:46px;top:10px;font-family:'Noto Sans';max-width:50%;padding-left:4px;"><button id="go" style="border:none;outline:none;border-radius:8px;height:26px;width:30px;background-color:#444444;color:#ffffff;position:absolute;right:12px;top:10px;font-family:'Noto Sans';max-width:50%;padding: 0px;">Go</button>`
 
    if (window.location.pathname.replace(/\/$/, "").split("/").length > 2) {
       var arr = window.location.pathname.replace(/\/$/, "").split("/")
