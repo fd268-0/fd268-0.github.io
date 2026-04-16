@@ -23,14 +23,14 @@
 
 		  function playSoundVar(name, vpitch) {
 			   const sv = new Audio(name)
-			  sv.volume = 0.2*permadata.settings.sfxvolume/40
+			  sv.volume = Math.min(0.2*permadata.settings.sfxvolume/40, 1)
 			  sv.playbackRate = vpitch + Math.random()*0.6-0.3
 			  sv.play()
 		  }
 
 		   function playSound(name, vol) {
 			   const sv = new Audio(name)
-			  sv.volume = vol*permadata.settings.sfxvolume/40
+			  sv.volume = Math.min(vol*permadata.settings.sfxvolume/40, 1)
 			  sv.play()
 		  }
 
